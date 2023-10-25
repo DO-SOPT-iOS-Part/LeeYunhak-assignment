@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		39251BCD2AE98A530057F4D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCC2AE98A530057F4D8 /* SnapKit */; };
 		39251BCF2AE98A530057F4D8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCE2AE98A530057F4D8 /* SnapKit-Dynamic */; };
+		39251BD82AE98BC80057F4D8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD72AE98BC80057F4D8 /* UIView.swift */; };
+		39251BDA2AE98BE60057F4D8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD92AE98BE60057F4D8 /* UIColor.swift */; };
+		39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDB2AE98C3C0057F4D8 /* UITextField.swift */; };
 		393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */; };
 		393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */; };
 		393C68ED2AE8C99C003E2A5A /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39251BD72AE98BC80057F4D8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		39251BD92AE98BE60057F4D8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		39251BDB2AE98C3C0057F4D8 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
 		393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
@@ -49,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39251BD62AE98BAB0057F4D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				39251BD72AE98BC80057F4D8 /* UIView.swift */,
+				39251BD92AE98BE60057F4D8 /* UIColor.swift */,
+				39251BDB2AE98C3C0057F4D8 /* UITextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		393C68F12AE8C9C0003E2A5A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +96,7 @@
 		398C9ADE2AE6809200DF76B4 /* SOPT_Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				39251BD62AE98BAB0057F4D8 /* Extensions */,
 				39E8CF9E2AE8CC5600E4A65D /* Resources */,
 				39E8CF9C2AE8CC2200E4A65D /* Application */,
 				39E8CF9D2AE8CC3100E4A65D /* Presentation */,
@@ -197,9 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39251BDA2AE98BE60057F4D8 /* UIColor.swift in Sources */,
+				39251BD82AE98BC80057F4D8 /* UIView.swift in Sources */,
 				398C9AE42AE6809200DF76B4 /* ViewController.swift in Sources */,
 				398C9AE02AE6809200DF76B4 /* AppDelegate.swift in Sources */,
 				398C9AE22AE6809200DF76B4 /* SceneDelegate.swift in Sources */,
+				39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
