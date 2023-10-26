@@ -19,6 +19,7 @@
 		39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */; };
 		39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */; };
 		39251BEB2AEA52AA0057F4D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */; };
+		39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEC2AEA66140057F4D8 /* CALayer.swift */; };
 		393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */; };
 		393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */; };
 		393C68ED2AE8C99C003E2A5A /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */; };
@@ -42,6 +43,7 @@
 		39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		39251BEC2AEA66140057F4D8 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
 		393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				39251BE32AEA29070057F4D8 /* UIStackView.swift */,
 				39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */,
 				39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */,
+				39251BEC2AEA66140057F4D8 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */,
 				39251BE42AEA29070057F4D8 /* UIStackView.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */,
+				39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */,
 				39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */,
 				39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */,
 			);

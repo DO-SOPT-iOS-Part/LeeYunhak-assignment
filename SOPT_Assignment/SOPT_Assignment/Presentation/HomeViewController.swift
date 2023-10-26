@@ -33,7 +33,11 @@ final class HomeViewController: UIViewController {
     }
     
     // MARK: - @IBAction Properties
-    
+    @objc fileprivate func navigationpush() {
+        print("move")
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
     // MARK: - @Functions
     // UI 세팅 작업
 
@@ -84,11 +88,7 @@ final class HomeViewController: UIViewController {
         locationListButton.detailButton.addTarget(self, action: #selector(navigationpush), for: .touchUpInside)
     }
     
-    @objc fileprivate func navigationpush() {
-        print("move")
-        let detailVC = DetailViewController()
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
+    
     
     // 레이아웃 세팅
     private func setupLayout() {
