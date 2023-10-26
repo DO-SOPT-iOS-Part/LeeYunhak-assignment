@@ -18,5 +18,7 @@ extension UITextField {
             ].compactMapValues { $0 }
         )
     }
-    
+    func setupStyle (_ todo: (UITextField) -> ()) {
+        todo(self)
+    }
 }
