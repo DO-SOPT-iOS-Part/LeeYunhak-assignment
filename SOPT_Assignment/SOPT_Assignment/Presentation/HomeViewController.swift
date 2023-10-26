@@ -80,8 +80,15 @@ final class HomeViewController: UIViewController {
             $0.axis = .vertical
             $0.spacing = 16
         }
+        
+        locationListButton.detailButton.addTarget(self, action: #selector(navigationpush), for: .touchUpInside)
     }
     
+    @objc fileprivate func navigationpush() {
+        print("move")
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
     
     // 레이아웃 세팅
     private func setupLayout() {
