@@ -34,7 +34,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - @IBAction Properties
     @objc fileprivate func navigationpush() {
-        print("move")
+        //print("move")
         let detailVC = DetailViewController()
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -94,8 +94,8 @@ final class HomeViewController: UIViewController {
     private func setupLayout() {
         view.addSubViews(weatherTitle, moreButton, searchBar, scrollView)
         scrollView.addSubview(contentView)
-        //contentView.addArrangedSubviews(locationListButton, test, test2, test3, test4, test5)
-        contentView.addArrangedSubviews(locationListButton)
+        //contentView.addArrangedSubViews(locationListButton, test, test2, test3, test4, test5)
+        contentView.addArrangedSubViews(locationListButton)
         weatherTitle.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(53)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)

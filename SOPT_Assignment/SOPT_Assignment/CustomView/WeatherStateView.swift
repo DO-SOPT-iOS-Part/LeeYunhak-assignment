@@ -11,7 +11,7 @@ import SnapKit
 final class WeatherStateView: UIView {
     
     var timeText: String? = "Now"
-    var weatherimageName: String = ""
+    var weatherimageName: String = "cloud.moon"
     var temperature: Int = 21
     
     lazy var weatherStateStackView = UIStackView()
@@ -62,7 +62,7 @@ final class WeatherStateView: UIView {
     func setupLayout() {
         self.addSubViews(weatherStateStackView)
         
-        weatherStateStackView.addArrangedSubviews(
+        weatherStateStackView.addArrangedSubViews(
             timeLabel, weatherIcon, temperatureLabel
         )
         

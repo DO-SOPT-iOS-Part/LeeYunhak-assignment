@@ -20,6 +20,7 @@
 		39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */; };
 		39251BEB2AEA52AA0057F4D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */; };
 		39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEC2AEA66140057F4D8 /* CALayer.swift */; };
+		39251BEF2AEA83250057F4D8 /* WeatherStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */; };
 		393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */; };
 		393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */; };
 		393C68ED2AE8C99C003E2A5A /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */; };
@@ -44,6 +45,7 @@
 		39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		39251BEC2AEA66140057F4D8 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateView.swift; sourceTree = "<group>"; };
 		393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
 		393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */,
+				39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				39251BEB2AEA52AA0057F4D8 /* UIImageView.swift in Sources */,
 				39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */,
 				398C9AE42AE6809200DF76B4 /* HomeViewController.swift in Sources */,
+				39251BEF2AEA83250057F4D8 /* WeatherStateView.swift in Sources */,
 				398C9AE02AE6809200DF76B4 /* AppDelegate.swift in Sources */,
 				398C9AE22AE6809200DF76B4 /* SceneDelegate.swift in Sources */,
 				39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */,

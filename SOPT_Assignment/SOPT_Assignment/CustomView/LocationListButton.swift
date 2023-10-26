@@ -21,7 +21,6 @@ final class LocationListButton: UIView {
     }
     
     lazy var detailButton = UIButton()
-    
     lazy var titleLabel = UILabel()
     lazy var locationLabel = UILabel()
     lazy var weatherLabel = UILabel()
