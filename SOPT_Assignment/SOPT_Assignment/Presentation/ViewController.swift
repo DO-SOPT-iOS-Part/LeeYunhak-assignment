@@ -19,7 +19,11 @@ final class ViewController: UIViewController {
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIStackView()
     private lazy var locationListButton = LocationListButton()
-    
+    private lazy var test = LocationListButton()
+    private lazy var test2 = LocationListButton()
+    private lazy var test3 = LocationListButton()
+    private lazy var test4 = LocationListButton()
+    private lazy var test5 = LocationListButton()
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +51,6 @@ final class ViewController: UIViewController {
             $0.setImage(UIImage(named: "more"), for: .normal)
         }
         
-        
         searchBar.setupStyle {
             $0.borderStyle = .roundedRect
             $0.backgroundColor = UIColor(hexCode: "#FFFFFF", alpha: 0.1)
@@ -67,41 +70,62 @@ final class ViewController: UIViewController {
             $0.leftView = leftView
             $0.leftViewMode = .always
         }
+        scrollView.setupStyle {
+            $0.showsVerticalScrollIndicator = false
+            $0.alwaysBounceVertical = true
+            
+        }
+    
+        contentView.setupStyle {
+            $0.axis = .vertical
+            $0.spacing = 16
+        }
     }
     
     
     // 레이아웃 세팅
     private func setupLayout() {
-        view.addSubViews(weatherTitle, moreButton, searchBar, locationListButton)
-        weatherTitle.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(53)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.width.equalTo(67)
-            make.height.equalTo(44)
+        view.addSubViews(weatherTitle, moreButton, searchBar, scrollView)
+        scrollView.addSubview(contentView)
+        //contentView.addArrangedSubviews(locationListButton, test, test2, test3, test4, test5)
+        contentView.addArrangedSubviews(locationListButton)
+        weatherTitle.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(53)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.width.equalTo(67)
+            $0.height.equalTo(44)
         }
         
-        moreButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.width.equalTo(44)
-            make.height.equalTo(44)
+        moreButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            $0.width.equalTo(44)
+            $0.height.equalTo(44)
         }
         
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(105)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(40)
+        searchBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(105)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(40)
         }
         
-        
-        
-        
-        locationListButton.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(15)
             $0.horizontalEdges.equalToSuperview().inset(20)
-            $0.height.equalTo(117)
+            $0.bottom.equalToSuperview()
         }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
+//        locationListButton.snp.makeConstraints {
+//            $0.top.equalToSuperview()
+//            $0.width.equalToSuperview()
+//            $0.height.equalTo(117)
+//        }
     }
     
 }

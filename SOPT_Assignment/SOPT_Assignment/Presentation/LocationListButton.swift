@@ -16,6 +16,9 @@ final class LocationListButton: UIView {
     var tempuratureHighText: String? = "최고:29°"
     var tempuratureLowText: String? = "최저:15°"
     
+    @objc private func tab() {
+        print("Tab Button!")
+    }
     
     lazy var detailButton = UIButton()
     
@@ -40,6 +43,7 @@ final class LocationListButton: UIView {
     
     func setupStyle() {
         detailButton.setBackgroundImage(UIImage(named: "placeListBackground"), for: .normal)
+        detailButton.addTarget(self, action: #selector(tab), for: .touchUpInside)
         
         titleLabel.setupStyle {
             $0.setBasic(

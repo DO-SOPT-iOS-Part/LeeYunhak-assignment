@@ -15,6 +15,8 @@
 		39251BDE2AEA10A20057F4D8 /* LocationListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */; };
 		39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDF2AEA15210057F4D8 /* UILabel.swift */; };
 		39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE12AEA24000057F4D8 /* UIButton.swift */; };
+		39251BE42AEA29070057F4D8 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE32AEA29070057F4D8 /* UIStackView.swift */; };
+		39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */; };
 		393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */; };
 		393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */; };
 		393C68ED2AE8C99C003E2A5A /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */; };
@@ -34,6 +36,8 @@
 		39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListButton.swift; sourceTree = "<group>"; };
 		39251BDF2AEA15210057F4D8 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		39251BE12AEA24000057F4D8 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		39251BE32AEA29070057F4D8 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
 		393C68E82AE8C99C003E2A5A /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				39251BDB2AE98C3C0057F4D8 /* UITextField.swift */,
 				39251BDF2AEA15210057F4D8 /* UILabel.swift */,
 				39251BE12AEA24000057F4D8 /* UIButton.swift */,
+				39251BE32AEA29070057F4D8 /* UIStackView.swift */,
+				39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,7 +236,9 @@
 				398C9AE02AE6809200DF76B4 /* AppDelegate.swift in Sources */,
 				398C9AE22AE6809200DF76B4 /* SceneDelegate.swift in Sources */,
 				39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */,
+				39251BE42AEA29070057F4D8 /* UIStackView.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */,
+				39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */,
 				39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
