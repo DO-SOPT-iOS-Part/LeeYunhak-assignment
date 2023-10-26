@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
 
@@ -112,8 +112,8 @@ final class ViewController: UIViewController {
         
         scrollView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(15)
-            $0.horizontalEdges.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         contentView.snp.makeConstraints {
@@ -121,11 +121,11 @@ final class ViewController: UIViewController {
             $0.width.equalToSuperview()
         }
         
-//        locationListButton.snp.makeConstraints {
-//            $0.top.equalToSuperview()
-//            $0.width.equalToSuperview()
-//            $0.height.equalTo(117)
-//        }
+        locationListButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(117)
+        }
     }
     
 }

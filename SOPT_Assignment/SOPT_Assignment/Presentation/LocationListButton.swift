@@ -93,7 +93,7 @@ final class LocationListButton: UIView {
         self.addSubViews(detailButton)
         
         detailButton.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(0)
+            $0.edges.equalToSuperview()
         }
         detailButton.addSubViews(
             titleLabel, locationLabel, weatherLabel, tempuratureLabel, tempuratureHighLabel, tempuratureLowLabel
