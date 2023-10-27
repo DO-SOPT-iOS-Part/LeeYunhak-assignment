@@ -12,7 +12,11 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    
     private lazy var backgroundImageView = UIImageView()
+    
+    private lazy var pageScrollView = UIScrollView()
+    private lazy var pageContentView = UIStackView()
     
     private lazy var summaryStackView = UIStackView()
     private lazy var locationLabel = UILabel()
@@ -20,17 +24,14 @@ final class DetailViewController: UIViewController {
     private lazy var weatherLabel = UILabel()
     private lazy var temperatureRangeLabel = UILabel()
     
-    private lazy var detailContentsView = UIView()
+    private lazy var detailContentView = UIView()
     private lazy var descriptionText = UILabel()
     private lazy var dividerView = UIView()
     private lazy var weatherTimelineScrollView = UIScrollView()
     private lazy var weatherTimelineContentView = UIStackView()
     private lazy var weatherStateViews: [WeatherStateView] = weatherStates.map {
         return WeatherStateView(timeText: $0.timeText, weatherimageName: $0.weatherimageName, temperature: $0.temperature)
-    }
-
-    
-    
+    }    
     
     private lazy var toolbarView = UIView()
     private lazy var mapButton = UIButton()
@@ -54,10 +55,20 @@ final class DetailViewController: UIViewController {
     // MARK: - @Functions
     // UI 세팅 작업
     private func setupStyle() {
-        
         backgroundImageView.setupStyle {
             $0.image = .mainBackground
             $0.contentMode = .scaleAspectFill
+        }
+        
+        pageScrollView.setupStyle {
+            $0.alwaysBounceVertical = true
+            $0.showsVerticalScrollIndicator = false
+        }
+        
+        pageContentView.setupStyle {
+            $0.axis = .vertical
+            $0.alignment = .center
+            $0.spacing = 44
         }
         
         summaryStackView.setupStyle {
@@ -118,10 +129,10 @@ final class DetailViewController: UIViewController {
             $0.setImage(.dot, for: .normal)
         }
         
-        detailContentsView.backgroundColor = UIColor(white: 1, alpha: 0.03)
-        detailContentsView.layer.cornerRadius = 15
-        detailContentsView.layer.borderWidth = 0.5
-        detailContentsView.layer.borderColor = UIColor(white: 1, alpha: 0.25).cgColor
+        detailContentView.backgroundColor = UIColor(white: 1, alpha: 0.03)
+        detailContentView.layer.cornerRadius = 15
+        detailContentView.layer.borderWidth = 0.5
+        detailContentView.layer.borderColor = UIColor(white: 1, alpha: 0.25).cgColor
         
         descriptionText.setupStyle {
             $0.setBasic (
@@ -147,14 +158,17 @@ final class DetailViewController: UIViewController {
     // 레이아웃 세팅
     private func setupLayout() {
         view.addSubViews(
-            backgroundImageView, summaryStackView, detailContentsView, toolbarView
+            backgroundImageView, pageScrollView, toolbarView
         )
+        
+        pageScrollView.addSubViews(pageContentView)
+        pageContentView.addArrangedSubViews(summaryStackView, detailContentView)
         
         summaryStackView.addArrangedSubViews(
             locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
         )
         
-        detailContentsView.addSubViews(
+        detailContentView.addSubViews(
             descriptionText, dividerView, weatherTimelineScrollView
         )
         weatherTimelineScrollView.addSubViews(weatherTimelineContentView)
@@ -170,42 +184,26 @@ final class DetailViewController: UIViewController {
         )
         
         
-        
+    
         
         
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        summaryStackView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        pageScrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(34)
-        }
-        
-        toolbarView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(toolbarView)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(82)
         }
         
-        mapButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(10)
-            $0.top.equalToSuperview().inset(4)
+        pageContentView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
         }
         
-        backMenuButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(9)
-            $0.top.equalToSuperview().inset(4)
-        }
-        
-        indexStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(14)
-            $0.centerX.equalToSuperview()
-        }
-        
-        detailContentsView.snp.makeConstraints {
-            $0.top.equalTo(summaryStackView.snp.bottom).offset(44)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        detailContentView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(212)
         }
         
@@ -232,6 +230,30 @@ final class DetailViewController: UIViewController {
             $0.edges.equalToSuperview()
             $0.height.equalToSuperview()
         }
+        
+        
+        toolbarView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(82)
+        }
+        
+        mapButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(10)
+            $0.top.equalToSuperview().inset(4)
+        }
+        
+        backMenuButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(9)
+            $0.top.equalToSuperview().inset(4)
+        }
+        
+        indexStackView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(14)
+            $0.centerX.equalToSuperview()
+        }
+        
+        
         
     }
     
