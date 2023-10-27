@@ -31,6 +31,7 @@
 		398C9AE42AE6809200DF76B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398C9AE32AE6809200DF76B4 /* HomeViewController.swift */; };
 		398C9AE92AE6809300DF76B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398C9AE82AE6809300DF76B4 /* Assets.xcassets */; };
 		398C9AEC2AE6809300DF76B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398C9AEA2AE6809300DF76B4 /* LaunchScreen.storyboard */; };
+		39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		398C9AE82AE6809300DF76B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398C9AEB2AE6809300DF76B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398C9AED2AE6809300DF76B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				39E8CF9D2AE8CC3100E4A65D /* Presentation */,
 				398C9AEA2AE6809300DF76B4 /* LaunchScreen.storyboard */,
 				398C9AED2AE6809300DF76B4 /* Info.plist */,
+				39EE01AB2AEBC7E900719D8D /* Data */,
 				39251BE72AEA31CE0057F4D8 /* CustomView */,
 			);
 			path = SOPT_Assignment;
@@ -165,6 +168,15 @@
 				393C68F12AE8C9C0003E2A5A /* Fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		39EE01AB2AEBC7E900719D8D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */,
+			);
+			name = Data;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +275,7 @@
 				39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */,
 				39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */,
 				39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */,
+				39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */,
 				39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

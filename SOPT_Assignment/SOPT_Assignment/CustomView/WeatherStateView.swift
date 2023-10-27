@@ -19,6 +19,17 @@ final class WeatherStateView: UIView {
     lazy var weatherIcon = UIImageView()
     lazy var temperatureLabel = UILabel()
     
+    init(timeText: String?, weatherimageName: String, temperature: Int) {
+        self.timeText = timeText
+        self.weatherimageName = weatherimageName
+        self.temperature = temperature
+        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                   
+        setupStyle()
+        setupLayout()
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()

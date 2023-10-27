@@ -25,14 +25,9 @@ final class DetailViewController: UIViewController {
     private lazy var dividerView = UIView()
     private lazy var weatherTimelineScrollView = UIScrollView()
     private lazy var weatherTimelineContentView = UIStackView()
-    private lazy var weatherStateView = WeatherStateView()
-    private lazy var weatherStateView2 = WeatherStateView()
-    private lazy var weatherStateView3 = WeatherStateView()
-    private lazy var weatherStateView4 = WeatherStateView()
-    private lazy var weatherStateView5 = WeatherStateView()
-    private lazy var weatherStateView6 = WeatherStateView()
-    private lazy var weatherStateView7 = WeatherStateView()
-    private lazy var weatherStateView8 = WeatherStateView()
+    private lazy var weatherStateViews: [WeatherStateView] = weatherStates.map {
+        return WeatherStateView(timeText: $0.timeText, weatherimageName: $0.weatherimageName, temperature: $0.temperature)
+    }
 
     
     
@@ -154,26 +149,29 @@ final class DetailViewController: UIViewController {
         view.addSubViews(
             backgroundImageView, summaryStackView, detailContentsView, toolbarView
         )
+        
         summaryStackView.addArrangedSubViews(
             locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
-        )
-        toolbarView.addSubViews(
-            mapButton, indexStackView, backMenuButton
-        )
-        
-        indexStackView.addArrangedSubViews(
-            currentButton, nextButton
         )
         
         detailContentsView.addSubViews(
             descriptionText, dividerView, weatherTimelineScrollView
         )
-        
         weatherTimelineScrollView.addSubViews(weatherTimelineContentView)
+        weatherStateViews.forEach {
+            weatherTimelineContentView.addArrangedSubview($0)
+        }
         
-        weatherTimelineContentView.addArrangedSubViews(
-            weatherStateView, weatherStateView2, weatherStateView3, weatherStateView4, weatherStateView5, weatherStateView6, weatherStateView7, weatherStateView8
+        toolbarView.addSubViews(
+            mapButton, indexStackView, backMenuButton
         )
+        indexStackView.addArrangedSubViews(
+            currentButton, nextButton
+        )
+        
+        
+        
+        
         
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
