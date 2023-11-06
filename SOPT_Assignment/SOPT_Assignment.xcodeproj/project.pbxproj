@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		39251BCD2AE98A530057F4D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCC2AE98A530057F4D8 /* SnapKit */; };
 		39251BCF2AE98A530057F4D8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCE2AE98A530057F4D8 /* SnapKit-Dynamic */; };
-		39251BD82AE98BC80057F4D8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD72AE98BC80057F4D8 /* UIView.swift */; };
-		39251BDA2AE98BE60057F4D8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD92AE98BE60057F4D8 /* UIColor.swift */; };
-		39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDB2AE98C3C0057F4D8 /* UITextField.swift */; };
+		39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD72AE98BC80057F4D8 /* UIView+.swift */; };
+		39251BDA2AE98BE60057F4D8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD92AE98BE60057F4D8 /* UIColor+.swift */; };
+		39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDB2AE98C3C0057F4D8 /* UITextField+.swift */; };
 		39251BDE2AEA10A20057F4D8 /* LocationListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */; };
-		39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDF2AEA15210057F4D8 /* UILabel.swift */; };
-		39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE12AEA24000057F4D8 /* UIButton.swift */; };
-		39251BE42AEA29070057F4D8 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE32AEA29070057F4D8 /* UIStackView.swift */; };
-		39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */; };
+		39251BE02AEA15210057F4D8 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BDF2AEA15210057F4D8 /* UILabel+.swift */; };
+		39251BE22AEA24000057F4D8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE12AEA24000057F4D8 /* UIButton+.swift */; };
+		39251BE42AEA29070057F4D8 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE32AEA29070057F4D8 /* UIStackView+.swift */; };
+		39251BE62AEA2EE60057F4D8 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE52AEA2EE60057F4D8 /* UIScrollView+.swift */; };
 		39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */; };
-		39251BEB2AEA52AA0057F4D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */; };
-		39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEC2AEA66140057F4D8 /* CALayer.swift */; };
+		39251BEB2AEA52AA0057F4D8 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEA2AEA52AA0057F4D8 /* UIImageView+.swift */; };
+		39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEC2AEA66140057F4D8 /* CALayer+.swift */; };
 		39251BEF2AEA83250057F4D8 /* WeatherStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */; };
 		393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */; };
 		393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */; };
@@ -36,17 +36,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		39251BD72AE98BC80057F4D8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		39251BD92AE98BE60057F4D8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		39251BDB2AE98C3C0057F4D8 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		39251BD72AE98BC80057F4D8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		39251BD92AE98BE60057F4D8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		39251BDB2AE98C3C0057F4D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListButton.swift; sourceTree = "<group>"; };
-		39251BDF2AEA15210057F4D8 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		39251BE12AEA24000057F4D8 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		39251BE32AEA29070057F4D8 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		39251BDF2AEA15210057F4D8 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		39251BE12AEA24000057F4D8 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		39251BE32AEA29070057F4D8 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		39251BE52AEA2EE60057F4D8 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		39251BEC2AEA66140057F4D8 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		39251BEA2AEA52AA0057F4D8 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		39251BEC2AEA66140057F4D8 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateView.swift; sourceTree = "<group>"; };
 		393C68E62AE8C99B003E2A5A /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		393C68E72AE8C99B003E2A5A /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.otf"; sourceTree = "<group>"; };
@@ -80,15 +80,15 @@
 		39251BD62AE98BAB0057F4D8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				39251BD72AE98BC80057F4D8 /* UIView.swift */,
-				39251BD92AE98BE60057F4D8 /* UIColor.swift */,
-				39251BDB2AE98C3C0057F4D8 /* UITextField.swift */,
-				39251BDF2AEA15210057F4D8 /* UILabel.swift */,
-				39251BE12AEA24000057F4D8 /* UIButton.swift */,
-				39251BE32AEA29070057F4D8 /* UIStackView.swift */,
-				39251BE52AEA2EE60057F4D8 /* UIScrollView.swift */,
-				39251BEA2AEA52AA0057F4D8 /* UIImageView.swift */,
-				39251BEC2AEA66140057F4D8 /* CALayer.swift */,
+				39251BD72AE98BC80057F4D8 /* UIView+.swift */,
+				39251BD92AE98BE60057F4D8 /* UIColor+.swift */,
+				39251BDB2AE98C3C0057F4D8 /* UITextField+.swift */,
+				39251BDF2AEA15210057F4D8 /* UILabel+.swift */,
+				39251BE12AEA24000057F4D8 /* UIButton+.swift */,
+				39251BE32AEA29070057F4D8 /* UIStackView+.swift */,
+				39251BE52AEA2EE60057F4D8 /* UIScrollView+.swift */,
+				39251BEA2AEA52AA0057F4D8 /* UIImageView+.swift */,
+				39251BEC2AEA66140057F4D8 /* CALayer+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -265,22 +265,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39251BDA2AE98BE60057F4D8 /* UIColor.swift in Sources */,
+				39251BDA2AE98BE60057F4D8 /* UIColor+.swift in Sources */,
 				39251BDE2AEA10A20057F4D8 /* LocationListButton.swift in Sources */,
-				39251BD82AE98BC80057F4D8 /* UIView.swift in Sources */,
-				39251BEB2AEA52AA0057F4D8 /* UIImageView.swift in Sources */,
+				39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */,
+				39251BEB2AEA52AA0057F4D8 /* UIImageView+.swift in Sources */,
 				39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */,
 				398C9AE42AE6809200DF76B4 /* HomeViewController.swift in Sources */,
 				39251BEF2AEA83250057F4D8 /* WeatherStateView.swift in Sources */,
 				398C9AE02AE6809200DF76B4 /* AppDelegate.swift in Sources */,
 				398C9AE22AE6809200DF76B4 /* SceneDelegate.swift in Sources */,
-				39251BE02AEA15210057F4D8 /* UILabel.swift in Sources */,
-				39251BE42AEA29070057F4D8 /* UIStackView.swift in Sources */,
-				39251BDC2AE98C3C0057F4D8 /* UITextField.swift in Sources */,
-				39251BED2AEA66140057F4D8 /* CALayer.swift in Sources */,
-				39251BE62AEA2EE60057F4D8 /* UIScrollView.swift in Sources */,
+				39251BE02AEA15210057F4D8 /* UILabel+.swift in Sources */,
+				39251BE42AEA29070057F4D8 /* UIStackView+.swift in Sources */,
+				39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */,
+				39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */,
+				39251BE62AEA2EE60057F4D8 /* UIScrollView+.swift in Sources */,
 				39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */,
-				39251BE22AEA24000057F4D8 /* UIButton.swift in Sources */,
+				39251BE22AEA24000057F4D8 /* UIButton+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
