@@ -32,6 +32,7 @@
 		398C9AE92AE6809300DF76B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398C9AE82AE6809300DF76B4 /* Assets.xcassets */; };
 		398C9AEC2AE6809300DF76B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398C9AEA2AE6809300DF76B4 /* LaunchScreen.storyboard */; };
 		39D2E70F2AF8BCF3006E47C5 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 39D2E70E2AF8BCF3006E47C5 /* Then */; };
+		39D2E7112AF8E6C8006E47C5 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */; };
 		39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		398C9AE82AE6809300DF76B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		398C9AEB2AE6809300DF76B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398C9AED2AE6809300DF76B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
 		39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			children = (
 				398C9AE32AE6809200DF76B4 /* HomeViewController.swift */,
 				39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */,
+				39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				39251BDE2AEA10A20057F4D8 /* LocationListButton.swift in Sources */,
 				39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */,
 				39251BEB2AEA52AA0057F4D8 /* UIImageView+.swift in Sources */,
+				39D2E7112AF8E6C8006E47C5 /* NewHomeViewController.swift in Sources */,
 				39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */,
 				398C9AE42AE6809200DF76B4 /* HomeViewController.swift in Sources */,
 				39251BEF2AEA83250057F4D8 /* WeatherStateView.swift in Sources */,

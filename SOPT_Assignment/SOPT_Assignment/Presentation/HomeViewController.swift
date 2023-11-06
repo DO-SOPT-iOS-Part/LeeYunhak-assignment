@@ -51,8 +51,10 @@ final class HomeViewController: UIViewController {
                 text: "날씨"
             )
         }
+  
         moreButton.setupStyle {
-            $0.setImage(UIImage(named: "more"), for: .normal)
+            $0.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+            $0.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
         
         searchBar.setupStyle {
