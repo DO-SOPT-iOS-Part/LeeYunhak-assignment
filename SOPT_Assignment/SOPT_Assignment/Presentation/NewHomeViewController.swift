@@ -42,9 +42,9 @@ class NewHomeViewController: UIViewController {
         // navigation Title
         let appearance = UINavigationBarAppearance()
         appearance.largeTitleTextAttributes = [
-                .foregroundColor: UIColor.white,
-                .font: UIFont(name: "SFProDisplay-Bold", size: 36) ?? UIFont()
-            ]
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SFProDisplay-Bold", size: 36) ?? UIFont()
+        ]
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = navigationTitle
         self.navigationItem.standardAppearance = appearance
@@ -77,6 +77,10 @@ class NewHomeViewController: UIViewController {
     }
     
     private func setupTableView() {
+        self.tableView.register(
+            LocationTableViewCell.self,
+            forCellReuseIdentifier: LocationTableViewCell.identifier
+        )
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -87,13 +91,13 @@ class NewHomeViewController: UIViewController {
 
 extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arr.count
+        return LocationListData.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = self.arr[indexPath.row]
-        cell.textLabel?.textColor = .black
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else {return UITableViewCell()}
+        cell.bindData(data: LocationListData.data[indexPath.row])
+        
         return cell
     }
 }

@@ -33,6 +33,8 @@
 		398C9AEC2AE6809300DF76B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398C9AEA2AE6809300DF76B4 /* LaunchScreen.storyboard */; };
 		39D2E70F2AF8BCF3006E47C5 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 39D2E70E2AF8BCF3006E47C5 /* Then */; };
 		39D2E7112AF8E6C8006E47C5 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */; };
+		39D2E7132AF9E6C7006E47C5 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7122AF9E6C7006E47C5 /* LocationTableViewCell.swift */; };
+		39D2E7152AF9FFFC006E47C5 /* LocationListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7142AF9FFFC006E47C5 /* LocationListData.swift */; };
 		39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		398C9AEB2AE6809300DF76B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		398C9AED2AE6809300DF76B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
+		39D2E7122AF9E6C7006E47C5 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		39D2E7142AF9FFFC006E47C5 /* LocationListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListData.swift; sourceTree = "<group>"; };
 		39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +166,7 @@
 				398C9AE32AE6809200DF76B4 /* HomeViewController.swift */,
 				39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */,
 				39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */,
+				39D2E7122AF9E6C7006E47C5 /* LocationTableViewCell.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */,
+				39D2E7142AF9FFFC006E47C5 /* LocationListData.swift */,
 			);
 			name = Data;
 			path = CustomView;
@@ -280,6 +286,8 @@
 				398C9AE22AE6809200DF76B4 /* SceneDelegate.swift in Sources */,
 				39251BE02AEA15210057F4D8 /* UILabel+.swift in Sources */,
 				39251BE42AEA29070057F4D8 /* UIStackView+.swift in Sources */,
+				39D2E7132AF9E6C7006E47C5 /* LocationTableViewCell.swift in Sources */,
+				39D2E7152AF9FFFC006E47C5 /* LocationListData.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */,
 				39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */,
 				39251BE62AEA2EE60057F4D8 /* UIScrollView+.swift in Sources */,
