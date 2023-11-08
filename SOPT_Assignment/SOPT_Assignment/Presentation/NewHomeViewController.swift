@@ -8,16 +8,14 @@
 import UIKit
 import Then
 
-class NewHomeViewController: UIViewController {
+final class NewHomeViewController: UIViewController {
     
     // MARK: - Properties
-    private let navigationTitle = "날씨"
-    private let searchBarPlaceHolder = "도시 또는 공항 검색"
-    
-    var arr = ["Zedd", "Alan Walker", "David Guetta", "Avicii", "Marshmello", "Steve Aoki", "R3HAB", "Armin van Buuren", "Skrillex", "Illenium", "The Chainsmokers", "Don Diablo", "Afrojack", "Tiesto", "KSHMR", "DJ Snake", "Kygo", "Galantis", "Major Lazer", "Vicetone"]
+    private let navigationTitleText = "날씨"
+    private let searchBarPlaceHolderText = "도시 또는 공항 검색"
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let tableView = UITableView()
+    private let tableView = UITableView(frame: CGRect(), style: .insetGrouped)
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -25,46 +23,54 @@ class NewHomeViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: animated)
+        }
+    }
+    
     // MARK: - @IBAction Properties
     
     // MARK: - @Functions
+    // 전체 세팅
     private func setup() {
         setupUI()
         setupTableView()
         setupLayout()
     }
     
-    // UI 세팅 작업
+    // UI 세팅
     private func setupUI() {
         // view
         self.view.backgroundColor = .black
         
-        // navigation Title
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont(name: "SFProDisplay-Bold", size: 36) ?? UIFont()
-        ]
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = navigationTitle
-        self.navigationItem.standardAppearance = appearance
+        // Navigation Controller
+        self.navigationController?.navigationBar.do {
+            $0.barStyle = .black
+            $0.largeTitleTextAttributes = [.font: UIFont(name: "SFProDisplay-Bold", size: 36) ?? UIFont()]
+            $0.titleTextAttributes = [.foregroundColor: UIColor.white]
+            $0.prefersLargeTitles = true
+        }
+        self.navigationItem.do {
+            $0.title = navigationTitleText
+            $0.searchController = searchController
+            $0.hidesSearchBarWhenScrolling = false
+            
+        }
         
         // UISearchController
-        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
-            string: searchBarPlaceHolder,
-            attributes: [
-                .foregroundColor: UIColor(white: 1, alpha: 0.5),
-                .font: UIFont(name: "SFProDisplay-Regular", size: 19) ?? UIFont()
-            ]
-        )
-        searchController.searchBar.searchTextField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        searchController.searchBar.placeholder = searchBarPlaceHolder
-        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
-        searchController.searchBar.tintColor = .white
-        self.navigationItem.searchController = searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.do {
+            $0.searchBar.placeholder = searchBarPlaceHolderText
+            $0.searchBar.setValue("취소", forKey: "cancelButtonText")
+            $0.searchBar.tintColor = .white
+        }
         
-        
+        // TableView
+        tableView.do {
+            $0.backgroundColor = .clear
+            $0.rowHeight = 133
+        }
     }
     
     // 레이아웃 세팅
@@ -76,11 +82,9 @@ class NewHomeViewController: UIViewController {
         }
     }
     
+    // TableView 세팅
     private func setupTableView() {
-        self.tableView.register(
-            LocationTableViewCell.self,
-            forCellReuseIdentifier: LocationTableViewCell.identifier
-        )
+        self.tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.identifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -99,5 +103,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bindData(data: LocationListData.data[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCellData = LocationListData.data[indexPath.row]
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

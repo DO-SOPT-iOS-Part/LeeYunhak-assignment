@@ -55,6 +55,8 @@ final class DetailViewController: UIViewController {
     // MARK: - @Functions
     // UI 세팅 작업
     private func setupStyle() {
+        self.navigationController?.navigationBar.isHidden = true
+        
         backgroundImageView.setupStyle {
             $0.image = .mainBackground
             $0.contentMode = .scaleAspectFill

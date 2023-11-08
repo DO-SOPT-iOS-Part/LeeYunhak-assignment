@@ -15,6 +15,7 @@ final class LocationTableViewCell: UITableViewCell {
     static let identifier: String = "LocationTableViewCell"
     
     private let backgroundImageView = UIImageView()
+    private let cellBackgroundView = UIView()
     private let titleLabel = UILabel()
     private let locationLabel = UILabel()
     private let weatherLabel = UILabel()
@@ -33,32 +34,32 @@ final class LocationTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//            // Cell 간격 조정
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
-//      }
     
     // MARK: - @Functions
+    // 전체 세팅
     private func setup() {
         setupUI()
         setupLayout()
     }
-    
-    func bindData(data: LocationListData) {
-        self.titleLabel.text = data.titleText
-        self.locationLabel.text = data.locationText
-        self.weatherLabel.text = data.weatherText
-        self.tempuratureLabel.text = data.tempuratureText
-        self.tempuratureHighLabel.text = data.tempuratureHighText
-        self.tempuratureLowLabel.text = data.tempuratureLowText
-        
-    }
-    // UI 세팅 작업
+
+    // UI 세팅
     private func setupUI() {
-        self.backgroundView = backgroundImageView
+        self.do {
+            $0.backgroundColor = .clear
+            $0.selectedBackgroundView = cellBackgroundView
+        }
         
-        backgroundImageView.image = UIImage(named: "placeListBackground")
+        self.contentView.do {
+            $0.layer.cornerRadius = 16
+        }
+        
+        backgroundImageView.do {
+            $0.image = UIImage(named: "placeListBackground")
+        }
+        
+        cellBackgroundView.do {
+            $0.backgroundColor = .clear
+        }
         
         titleLabel.do {
             $0.setBasic(
@@ -105,15 +106,17 @@ final class LocationTableViewCell: UITableViewCell {
 
     }
     
+    // 레이아웃 세팅
     private func setupLayout() {
-        self.contentView.addSubViews(
+        self.contentView.addSubViews(backgroundImageView)
+        self.backgroundImageView.addSubViews(
             titleLabel, locationLabel, weatherLabel, tempuratureLabel, tempuratureHighLabel, tempuratureLowLabel
-        )
-        
-        contentView.snp.makeConstraints {
-            $0.height.equalTo(117)
-            $0.width.equalToSuperview()
+        ) 
+          
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
+       
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
@@ -144,5 +147,24 @@ final class LocationTableViewCell: UITableViewCell {
             $0.trailing.equalTo(tempuratureLowLabel.snp.leading).offset(-6)
             $0.bottom.equalToSuperview().inset(10)
         }
+        
+        
+    }
+    
+    // Cell 간격 조정
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
+    }
+    
+    // 데이터 바인딩.
+    func bindData(data: LocationListData) {
+        self.titleLabel.text = data.titleText
+        self.locationLabel.text = data.locationText
+        self.weatherLabel.text = data.weatherText
+        self.tempuratureLabel.text = data.tempuratureText
+        self.tempuratureHighLabel.text = data.tempuratureHighText
+        self.tempuratureLowLabel.text = data.tempuratureLowText
+        
     }
 }
