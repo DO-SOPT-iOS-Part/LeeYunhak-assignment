@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		390C9DDC2AFDC66D0052A7A9 /* DetailVCToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */; };
-		390C9DDE2AFDCCD10052A7A9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDD2AFDCCD10052A7A9 /* TestViewController.swift */; };
 		390C9DE02AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */; };
 		390C9DE22AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */; };
 		390C9DE62AFE1C910052A7A9 /* WeatherTimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE52AFE1C910052A7A9 /* WeatherTimelineCollectionViewCell.swift */; };
-		390C9DE82AFE2F0C0052A7A9 /* DetailVCWeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastView.swift */; };
+		390C9DE82AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift */; };
 		390C9DEA2AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE92AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift */; };
 		390C9DED2AFE36CB0052A7A9 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 390C9DEC2AFE36CB0052A7A9 /* SFProDisplay-Semibold.otf */; };
 		390C9DEF2AFE440D0052A7A9 /* WeatherForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DEE2AFE440D0052A7A9 /* WeatherForecastData.swift */; };
+		390C9DF12AFE6F0A0052A7A9 /* DetailVCWeatherForecastHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DF02AFE6F0A0052A7A9 /* DetailVCWeatherForecastHeader.swift */; };
 		39251BCD2AE98A530057F4D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCC2AE98A530057F4D8 /* SnapKit */; };
 		39251BCF2AE98A530057F4D8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCE2AE98A530057F4D8 /* SnapKit-Dynamic */; };
 		39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD72AE98BC80057F4D8 /* UIView+.swift */; };
@@ -49,14 +49,14 @@
 
 /* Begin PBXFileReference section */
 		390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCToolBarView.swift; sourceTree = "<group>"; };
-		390C9DDD2AFDCCD10052A7A9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCSummaryStackView.swift; sourceTree = "<group>"; };
 		390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherTimelineView.swift; sourceTree = "<group>"; };
 		390C9DE52AFE1C910052A7A9 /* WeatherTimelineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTimelineCollectionViewCell.swift; sourceTree = "<group>"; };
-		390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherForecastView.swift; sourceTree = "<group>"; };
+		390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherForecastTableView.swift; sourceTree = "<group>"; };
 		390C9DE92AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherForecastTableViewCell.swift; sourceTree = "<group>"; };
 		390C9DEC2AFE36CB0052A7A9 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		390C9DEE2AFE440D0052A7A9 /* WeatherForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastData.swift; sourceTree = "<group>"; };
+		390C9DF02AFE6F0A0052A7A9 /* DetailVCWeatherForecastHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherForecastHeader.swift; sourceTree = "<group>"; };
 		39251BD72AE98BC80057F4D8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		39251BD92AE98BE60057F4D8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		39251BDB2AE98C3C0057F4D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -124,8 +124,9 @@
 				39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */,
 				390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */,
 				390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */,
-				390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastView.swift */,
+				390C9DE72AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift */,
 				390C9DE92AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift */,
+				390C9DF02AFE6F0A0052A7A9 /* DetailVCWeatherForecastHeader.swift */,
 				390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */,
 				390C9DE52AFE1C910052A7A9 /* WeatherTimelineCollectionViewCell.swift */,
 			);
@@ -190,7 +191,6 @@
 			children = (
 				39251BE82AEA31ED0057F4D8 /* DetailViewController.swift */,
 				39DC1FE82AFD4CD700BC239F /* NewDetailViewController.swift */,
-				390C9DDD2AFDCCD10052A7A9 /* TestViewController.swift */,
 				39D2E7102AF8E6C8006E47C5 /* NewHomeViewController.swift */,
 				39D2E7122AF9E6C7006E47C5 /* LocationTableViewCell.swift */,
 			);
@@ -305,7 +305,6 @@
 				39251BDA2AE98BE60057F4D8 /* UIColor+.swift in Sources */,
 				39251BDE2AEA10A20057F4D8 /* LocationListButton.swift in Sources */,
 				39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */,
-				390C9DDE2AFDCCD10052A7A9 /* TestViewController.swift in Sources */,
 				39251BEB2AEA52AA0057F4D8 /* UIImageView+.swift in Sources */,
 				39D2E7112AF8E6C8006E47C5 /* NewHomeViewController.swift in Sources */,
 				39251BE92AEA31ED0057F4D8 /* DetailViewController.swift in Sources */,
@@ -320,13 +319,14 @@
 				39D2E7132AF9E6C7006E47C5 /* LocationTableViewCell.swift in Sources */,
 				39D2E7152AF9FFFC006E47C5 /* LocationListData.swift in Sources */,
 				390C9DE62AFE1C910052A7A9 /* WeatherTimelineCollectionViewCell.swift in Sources */,
-				390C9DE82AFE2F0C0052A7A9 /* DetailVCWeatherForecastView.swift in Sources */,
+				390C9DE82AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift in Sources */,
 				390C9DDC2AFDC66D0052A7A9 /* DetailVCToolBarView.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */,
 				39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */,
 				390C9DEA2AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift in Sources */,
 				390C9DE22AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift in Sources */,
 				39251BE62AEA2EE60057F4D8 /* UIScrollView+.swift in Sources */,
+				390C9DF12AFE6F0A0052A7A9 /* DetailVCWeatherForecastHeader.swift in Sources */,
 				39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */,
 				39251BE22AEA24000057F4D8 /* UIButton+.swift in Sources */,
 			);

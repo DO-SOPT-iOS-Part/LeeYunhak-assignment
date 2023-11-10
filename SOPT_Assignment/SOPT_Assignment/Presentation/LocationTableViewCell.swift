@@ -15,7 +15,6 @@ final class LocationTableViewCell: UITableViewCell {
     static let identifier: String = "LocationTableViewCell"
     
     private let backgroundImageView = UIImageView()
-    private let cellSelectedBackgroundView = UIView()
     private let titleLabel = UILabel()
     private let locationLabel = UILabel()
     private let weatherLabel = UILabel()
@@ -46,7 +45,7 @@ final class LocationTableViewCell: UITableViewCell {
     private func setupUI() {
         self.do {
             $0.backgroundColor = .clear
-            $0.selectedBackgroundView = cellSelectedBackgroundView
+            $0.selectionStyle = .none
         }
         
         self.contentView.do {
@@ -55,10 +54,6 @@ final class LocationTableViewCell: UITableViewCell {
         
         backgroundImageView.do {
             $0.image = UIImage(named: "placeListBackground")
-        }
-        
-        cellSelectedBackgroundView.do {
-            $0.backgroundColor = .clear
         }
         
         titleLabel.do {
@@ -154,7 +149,7 @@ final class LocationTableViewCell: UITableViewCell {
     // Cell 간격 조정
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 16, right: 20))
     }
     
     // 데이터 바인딩.

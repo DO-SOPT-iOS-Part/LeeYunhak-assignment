@@ -15,7 +15,7 @@ final class NewHomeViewController: UIViewController {
     private let searchBarPlaceHolderText = "도시 또는 공항 검색"
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let tableView = UITableView(frame: CGRect(), style: .insetGrouped)
+    private let tableView = UITableView(frame: CGRect(), style: .plain)
     private let rightBarButton = UIBarButtonItem()
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -111,12 +111,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else {return UITableViewCell()}
         cell.bindData(data: LocationListData.dummyData[indexPath.row])
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCellData = LocationListData.dummyData[indexPath.row]
+        //let selectedCellData = LocationListData.dummyData[indexPath.row]
         let detailVC = NewDetailViewController()
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

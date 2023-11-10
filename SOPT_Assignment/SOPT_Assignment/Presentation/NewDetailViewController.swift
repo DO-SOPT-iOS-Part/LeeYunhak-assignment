@@ -21,9 +21,8 @@ final class NewDetailViewController: UIViewController {
     
     private let summaryStackView = DetailVCSummaryStackView()
     private let weatherTimelineView = DetailVCWeatherTimelineView()
-    private let weatherForecastTableView = DetailVCWeatherForecastView()
+    private let weatherForecastTableView = DetailVCWeatherForecastTableView()
     private let toolbarView = DetailVCToolBarView()
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +54,7 @@ final class NewDetailViewController: UIViewController {
         pageContentView.do {
             $0.axis = .vertical
             $0.alignment = .center
+            $0.spacing = 20
         }
         
         toolbarView.backMenuButton.do {
@@ -74,7 +74,7 @@ final class NewDetailViewController: UIViewController {
         
         pageScrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(34)
-            $0.bottom.equalTo(toolbarView)
+            $0.bottom.equalTo(toolbarView.snp.top)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -92,22 +92,15 @@ final class NewDetailViewController: UIViewController {
         }
         
         pageContentView.addArrangedSubViews(summaryStackView, weatherTimelineView, weatherForecastTableView)
-        summaryStackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            //$0.height.equalTo(212)
-            $0.horizontalEdges.equalToSuperview()
-        }
         
         weatherTimelineView.snp.makeConstraints {
-            $0.top.equalTo(summaryStackView).offset(44)
             $0.height.equalTo(212)
             $0.horizontalEdges.equalToSuperview()
         }
         weatherForecastTableView.snp.makeConstraints {
-            //$0.top.equalTo(weatherTimelineView.snp.bottom).offset(20)
             $0.height.equalTo(675)
+
             $0.horizontalEdges.equalToSuperview()
-            
         }
     }
     

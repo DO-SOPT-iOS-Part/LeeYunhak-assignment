@@ -10,13 +10,10 @@ import UIKit
 struct WeatherForecastData {
     var dayText: Day
     var weatherImage: UIImage
-    var percentageNumber: Int
+    var percentageText: String?
     var tempuratureLowNumber: Int
     var tempuratureHighNumber: Int
     var temperatureLineGraphImage: UIImage
-    var isRainy: Bool {
-        percentageNumber > 0
-    }
 
     enum Day: String {
         case today = "오늘"
@@ -32,16 +29,16 @@ struct WeatherForecastData {
 
 extension WeatherForecastData {
     static let dummyData: [WeatherForecastData] = [
-        WeatherForecastData(dayText: .today, weatherImage: .sun, percentageNumber: 0, tempuratureLowNumber: 15, tempuratureHighNumber: 29, temperatureLineGraphImage: .temperatureLineGraph1),
-        WeatherForecastData(dayText: .mon, weatherImage: .cloudDrizzleMini, percentageNumber: 60, tempuratureLowNumber: 18, tempuratureHighNumber: 27, temperatureLineGraphImage: .temperatureLineGraph2),
-        WeatherForecastData(dayText: .tue, weatherImage: .cloudDrizzleMini, percentageNumber: 60, tempuratureLowNumber: 20, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph3),
-        WeatherForecastData(dayText: .wed, weatherImage: .cloudDrizzleMini, percentageNumber: 70, tempuratureLowNumber: 17, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph4),
-        WeatherForecastData(dayText: .thu, weatherImage: .cloudDrizzleMini, percentageNumber: 50, tempuratureLowNumber: 17, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph5),
-        WeatherForecastData(dayText: .fri, weatherImage: .cloudSun, percentageNumber: 0, tempuratureLowNumber: 20, tempuratureHighNumber: 26, temperatureLineGraphImage: .temperatureLineGraph6),
-        WeatherForecastData(dayText: .sat, weatherImage: .sun, percentageNumber: 0, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph7),
-        WeatherForecastData(dayText: .sun, weatherImage: .cloudDrizzleMini, percentageNumber: 50, tempuratureLowNumber: 13, tempuratureHighNumber: 21, temperatureLineGraphImage: .temperatureLineGraph8),
-        WeatherForecastData(dayText: .mon, weatherImage: .cloudDrizzleMini, percentageNumber: 50, tempuratureLowNumber: 12, tempuratureHighNumber: 19, temperatureLineGraphImage: .temperatureLineGraph9),
-        WeatherForecastData(dayText: .tue, weatherImage: .sun, percentageNumber: 0, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph10),
-        WeatherForecastData(dayText: .wed, weatherImage: .sun, percentageNumber: 0, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph11)
+        WeatherForecastData(dayText: .today, weatherImage: .sun, tempuratureLowNumber: 15, tempuratureHighNumber: 29, temperatureLineGraphImage: .temperatureLineGraph1),
+        WeatherForecastData(dayText: .mon, weatherImage: .cloudDrizzleMini, percentageText: "60%", tempuratureLowNumber: 18, tempuratureHighNumber: 27, temperatureLineGraphImage: .temperatureLineGraph2),
+        WeatherForecastData(dayText: .tue, weatherImage: .cloudDrizzleMini, percentageText: "60%", tempuratureLowNumber: 20, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph3),
+        WeatherForecastData(dayText: .wed, weatherImage: .cloudDrizzleMini, percentageText: "70%", tempuratureLowNumber: 17, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph4),
+        WeatherForecastData(dayText: .thu, weatherImage: .cloudDrizzleMini, percentageText: "50%", tempuratureLowNumber: 17, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph5),
+        WeatherForecastData(dayText: .fri, weatherImage: .cloudSun, tempuratureLowNumber: 20, tempuratureHighNumber: 26, temperatureLineGraphImage: .temperatureLineGraph6),
+        WeatherForecastData(dayText: .sat, weatherImage: .sun, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph7),
+        WeatherForecastData(dayText: .sun, weatherImage: .cloudDrizzleMini, percentageText: "50%", tempuratureLowNumber: 13, tempuratureHighNumber: 21, temperatureLineGraphImage: .temperatureLineGraph8),
+        WeatherForecastData(dayText: .mon, weatherImage: .cloudDrizzleMini, percentageText: "50%", tempuratureLowNumber: 12, tempuratureHighNumber: 19, temperatureLineGraphImage: .temperatureLineGraph9),
+        WeatherForecastData(dayText: .tue, weatherImage: .sun, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph10),
+        WeatherForecastData(dayText: .wed, weatherImage: .sun, tempuratureLowNumber: 18, tempuratureHighNumber: 25, temperatureLineGraphImage: .temperatureLineGraph11)
     ]
 }

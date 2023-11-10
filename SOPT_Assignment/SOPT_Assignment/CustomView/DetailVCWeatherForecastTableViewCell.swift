@@ -14,10 +14,6 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     // MARK: - Properties
     static let identifier: String = "DetailVCWeatherForecastTableViewCell"
     
-    var isRainy = false
-    
-    private let cellSelectedBackgroundView = UIView()
-    
     private let dayLabel = UILabel()
     private let stackView = UIStackView()
     private let weatherImage = UIImageView()
@@ -43,19 +39,10 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
         setupUI()
         setupLayout()
     }
-
+    
     // UI 세팅
     private func setupUI() {
-        self.contentView.do {
-            $0.layer.cornerRadius = 15
-        }
-        
         self.do {
-            $0.backgroundColor = .clear
-            $0.selectedBackgroundView = cellSelectedBackgroundView
-        }
-        
-        cellSelectedBackgroundView.do {
             $0.backgroundColor = .clear
         }
         
@@ -113,23 +100,20 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     private func setupLayout() {
         self.contentView.addSubViews(dayLabel, stackView, temperatureLowLabel, temperatureLineGraphImage, temperatureHighLabel)
         
-        if isRainy {
-            stackView.addArrangedSubViews(weatherImage, percentageLabel)
-        } else {
-            stackView.addArrangedSubViews(weatherImage)
-        }
+        stackView.addArrangedSubViews(weatherImage, percentageLabel)
         
-          
         dayLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)
             $0.leading.equalToSuperview().inset(16)
         }
-       
+        
         stackView.snp.makeConstraints {
             $0.leading.equalTo(dayLabel.snp.leading)
             $0.trailing.equalTo(temperatureLowLabel.snp.trailing)
             $0.centerY.equalToSuperview()
+            
         }
+        
         
         temperatureLowLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)
@@ -153,10 +137,9 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     func bindData(data: WeatherForecastData) {
         self.dayLabel.text = data.dayText.rawValue
         self.weatherImage.image = data.weatherImage
-        self.percentageLabel.text = "\(data.percentageNumber)%"
+        self.percentageLabel.text = data.percentageText
         self.temperatureLowLabel.text = "\(data.tempuratureLowNumber)°"
         self.temperatureLowLabel.text = "\(data.tempuratureHighNumber)°"
         self.temperatureLineGraphImage.image = data.temperatureLineGraphImage
-        self.isRainy = data.isRainy
     }
 }

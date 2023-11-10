@@ -24,12 +24,10 @@ final class DetailVCToolBarView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupStyle()
-        setupLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func setupStyle() {
+    private func setupStyle() {
         self.do {
             $0.addTopBorder(with: UIColor(white: 1, alpha: 0.3), andWidth: 0.4)
             $0.backgroundColor = UIColor(hexCode: "#2A3040")
@@ -58,7 +56,7 @@ final class DetailVCToolBarView: UIView {
         }
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         self.addSubViews(
             mapButton, indexStackView, backMenuButton
         )

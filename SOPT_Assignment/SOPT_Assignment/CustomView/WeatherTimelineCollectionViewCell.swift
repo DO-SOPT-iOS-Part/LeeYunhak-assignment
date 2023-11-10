@@ -25,9 +25,7 @@ final class WeatherTimelineCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupStyle()
-        setupLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupStyle() {

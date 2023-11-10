@@ -16,6 +16,7 @@ final class DetailVCSummaryStackView: UIView {
     private let temperatureLabel = UILabel()
     private let weatherLabel = UILabel()
     private let temperatureRangeLabel = UILabel()
+    private let emptyView = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,9 +25,7 @@ final class DetailVCSummaryStackView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupStyle()
-        setupLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupStyle() {
@@ -73,8 +72,12 @@ final class DetailVCSummaryStackView: UIView {
         }
         
         summaryStackView.addArrangedSubViews(
-            locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
+            locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel, emptyView
         )
+        emptyView.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.width.equalToSuperview()
+        }
         
         
     }
