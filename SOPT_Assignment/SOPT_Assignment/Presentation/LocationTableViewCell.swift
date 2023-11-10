@@ -15,7 +15,7 @@ final class LocationTableViewCell: UITableViewCell {
     static let identifier: String = "LocationTableViewCell"
     
     private let backgroundImageView = UIImageView()
-    private let cellBackgroundView = UIView()
+    private let cellSelectedBackgroundView = UIView()
     private let titleLabel = UILabel()
     private let locationLabel = UILabel()
     private let weatherLabel = UILabel()
@@ -46,7 +46,7 @@ final class LocationTableViewCell: UITableViewCell {
     private func setupUI() {
         self.do {
             $0.backgroundColor = .clear
-            $0.selectedBackgroundView = cellBackgroundView
+            $0.selectedBackgroundView = cellSelectedBackgroundView
         }
         
         self.contentView.do {
@@ -57,7 +57,7 @@ final class LocationTableViewCell: UITableViewCell {
             $0.image = UIImage(named: "placeListBackground")
         }
         
-        cellBackgroundView.do {
+        cellSelectedBackgroundView.do {
             $0.backgroundColor = .clear
         }
         

@@ -13,8 +13,7 @@ import Then
 final class NewDetailViewController: UIViewController {
     
     // MARK: - Properties
-    
-    
+
     private let backgroundImageView = UIImageView()
     
     private let pageScrollView = UIScrollView()
@@ -22,7 +21,7 @@ final class NewDetailViewController: UIViewController {
     
     private let summaryStackView = DetailVCSummaryStackView()
     private let weatherTimelineView = DetailVCWeatherTimelineView()
-    
+    private let weatherForecastTableView = DetailVCWeatherForecastView()
     private let toolbarView = DetailVCToolBarView()
     
     // MARK: - View Life Cycle
@@ -56,13 +55,11 @@ final class NewDetailViewController: UIViewController {
         pageContentView.do {
             $0.axis = .vertical
             $0.alignment = .center
-            $0.spacing = 44
         }
         
         toolbarView.backMenuButton.do {
             $0.addTarget(self, action: #selector(navigationpop), for: .touchUpInside)
         }
-        
     }
     
     // 레이아웃 세팅
@@ -94,10 +91,23 @@ final class NewDetailViewController: UIViewController {
             $0.width.equalToSuperview()
         }
         
-        pageContentView.addArrangedSubViews(summaryStackView, weatherTimelineView)
+        pageContentView.addArrangedSubViews(summaryStackView, weatherTimelineView, weatherForecastTableView)
+        summaryStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            //$0.height.equalTo(212)
+            $0.horizontalEdges.equalToSuperview()
+        }
         
         weatherTimelineView.snp.makeConstraints {
+            $0.top.equalTo(summaryStackView).offset(44)
             $0.height.equalTo(212)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        weatherForecastTableView.snp.makeConstraints {
+            //$0.top.equalTo(weatherTimelineView.snp.bottom).offset(20)
+            $0.height.equalTo(675)
+            $0.horizontalEdges.equalToSuperview()
+            
         }
     }
     

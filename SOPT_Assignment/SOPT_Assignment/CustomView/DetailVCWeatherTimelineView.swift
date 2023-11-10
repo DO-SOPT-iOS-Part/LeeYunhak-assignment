@@ -11,7 +11,6 @@ import Then
 
 final class DetailVCWeatherTimelineView: UIView {
     
-    private let detailContentView = UIView()
     private let descriptionText = UILabel()
     private let dividerView = UIView()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -33,7 +32,7 @@ final class DetailVCWeatherTimelineView: UIView {
     }
     
     private func setupStyle() {
-        detailContentView.do {
+        self.do {
             $0.backgroundColor = UIColor(white: 1, alpha: 0.03)
             $0.layer.cornerRadius = 15
             $0.layer.borderWidth = 0.5
@@ -62,13 +61,7 @@ final class DetailVCWeatherTimelineView: UIView {
     }
     
     private func setupLayout() {
-        self.addSubViews(detailContentView)
-        
-        detailContentView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        detailContentView.addSubViews(
+        self.addSubViews(
             descriptionText, dividerView, collectionView
         )
         
@@ -85,7 +78,7 @@ final class DetailVCWeatherTimelineView: UIView {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(dividerView).offset(14)
+            $0.top.equalTo(dividerView.snp.bottom).offset(14)
             $0.bottom.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().inset(15)
             $0.trailing.equalToSuperview()
