@@ -66,14 +66,16 @@ final class DetailVCSummaryStackView: UIView {
     }
     
     func setupLayout() {
-        self.addSubViews(
-            summaryStackView
-        )
-        summaryStackView.addArrangedSubViews(
-            locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
-        )
+        self.addSubViews(summaryStackView)
+        
         summaryStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        summaryStackView.addArrangedSubViews(
+            locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
+        )
+        
+        
     }
 }

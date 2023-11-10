@@ -10,6 +10,7 @@
 		390C9DDC2AFDC66D0052A7A9 /* DetailVCToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */; };
 		390C9DDE2AFDCCD10052A7A9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDD2AFDCCD10052A7A9 /* TestViewController.swift */; };
 		390C9DE02AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */; };
+		390C9DE22AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */; };
 		39251BCD2AE98A530057F4D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCC2AE98A530057F4D8 /* SnapKit */; };
 		39251BCF2AE98A530057F4D8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 39251BCE2AE98A530057F4D8 /* SnapKit-Dynamic */; };
 		39251BD82AE98BC80057F4D8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39251BD72AE98BC80057F4D8 /* UIView+.swift */; };
@@ -45,6 +46,7 @@
 		390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCToolBarView.swift; sourceTree = "<group>"; };
 		390C9DDD2AFDCCD10052A7A9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCSummaryStackView.swift; sourceTree = "<group>"; };
+		390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCWeatherTimelineView.swift; sourceTree = "<group>"; };
 		39251BD72AE98BC80057F4D8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		39251BD92AE98BE60057F4D8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		39251BDB2AE98C3C0057F4D8 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				39251BDD2AEA10A20057F4D8 /* LocationListButton.swift */,
 				39251BEE2AEA83250057F4D8 /* WeatherStateView.swift */,
 				390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */,
+				390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */,
 				390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */,
 			);
 			path = CustomView;
@@ -302,6 +305,7 @@
 				390C9DDC2AFDC66D0052A7A9 /* DetailVCToolBarView.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */,
 				39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */,
+				390C9DE22AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift in Sources */,
 				39251BE62AEA2EE60057F4D8 /* UIScrollView+.swift in Sources */,
 				39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */,
 				39251BE22AEA24000057F4D8 /* UIButton+.swift in Sources */,
