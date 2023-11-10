@@ -15,16 +15,12 @@ final class NewDetailViewController: UIViewController {
     // MARK: - Properties
     
     
-    private lazy var backgroundImageView = UIImageView()
+    private let backgroundImageView = UIImageView()
     
-    private lazy var pageScrollView = UIScrollView()
-    private lazy var pageContentView = UIStackView()
+    private let pageScrollView = UIScrollView()
+    private let pageContentView = UIStackView()
     
-    private lazy var summaryStackView = UIStackView()
-    private lazy var locationLabel = UILabel()
-    private lazy var temperatureLabel = UILabel()
-    private lazy var weatherLabel = UILabel()
-    private lazy var temperatureRangeLabel = UILabel()
+    private let summaryStackView = DetailVCSummaryStackView()
     
     private lazy var detailContentView = UIView()
     private lazy var descriptionText = UILabel()
@@ -55,55 +51,22 @@ final class NewDetailViewController: UIViewController {
     // MARK: - @Functions
     // UI 세팅 작업
     private func setupStyle() {
-        backgroundImageView.setupStyle {
+        backgroundImageView.do {
             $0.image = .mainBackground
             $0.contentMode = .scaleAspectFill
         }
         
-        pageScrollView.setupStyle {
+        pageScrollView.do {
             $0.alwaysBounceVertical = true
             $0.showsVerticalScrollIndicator = false
         }
         
-        pageContentView.setupStyle {
+        pageContentView.do {
             $0.axis = .vertical
             $0.alignment = .center
             $0.spacing = 44
         }
         
-        summaryStackView.setupStyle {
-            $0.axis = .vertical
-            $0.alignment = .center
-            $0.spacing = 4
-        }
-        
-        locationLabel.setupStyle {
-            $0.setBasic (
-                font: UIFont(name: "SFProDisplay-Regular", size: 36),
-                text: "의정부시"
-            )
-        }
-        
-        temperatureLabel.setupStyle {
-            $0.setBasic (
-                font: UIFont(name: "SFProDisplay-Thin", size: 102),
-                text: "21°"
-            )
-        }
-        
-        weatherLabel.setupStyle {
-            $0.setBasic (
-                font: UIFont(name: "SFProDisplay-Regular", size: 24),
-                text: "흐림"
-            )
-        }
-        
-        temperatureRangeLabel.setupStyle {
-            $0.setBasic (
-                font: UIFont(name: "SFProDisplay-Medium", size: 20),
-                text: "최고:29°  최저:15°"
-            )
-        }
         detailContentView.backgroundColor = UIColor(white: 1, alpha: 0.03)
         detailContentView.layer.cornerRadius = 15
         detailContentView.layer.borderWidth = 0.5
@@ -140,21 +103,6 @@ final class NewDetailViewController: UIViewController {
             backgroundImageView, pageScrollView, toolbarView
         )
         
-        pageScrollView.addSubViews(pageContentView)
-        pageContentView.addArrangedSubViews(summaryStackView, detailContentView)
-        
-        summaryStackView.addArrangedSubViews(
-            locationLabel, temperatureLabel, weatherLabel, temperatureRangeLabel
-        )
-        
-        detailContentView.addSubViews(
-            descriptionText, dividerView, weatherTimelineScrollView
-        )
-        weatherTimelineScrollView.addSubViews(weatherTimelineContentView)
-        weatherStateViews.forEach {
-            weatherTimelineContentView.addArrangedSubview($0)
-        }
-        
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -165,15 +113,29 @@ final class NewDetailViewController: UIViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
         
+        toolbarView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(82)
+        }
+        
+        pageScrollView.addSubViews(pageContentView)
+        
         pageContentView.snp.makeConstraints{
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
         
+        pageContentView.addArrangedSubViews(summaryStackView, detailContentView)
+        
         detailContentView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(212)
         }
+    
+        detailContentView.addSubViews(
+            descriptionText, dividerView, weatherTimelineScrollView
+        )
         
         descriptionText.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
@@ -194,15 +156,15 @@ final class NewDetailViewController: UIViewController {
             $0.trailing.equalToSuperview()
         }
         
+        weatherTimelineScrollView.addSubViews(weatherTimelineContentView)
+        
         weatherTimelineContentView.snp.makeConstraints{
             $0.edges.equalToSuperview()
             $0.height.equalToSuperview()
         }
         
-        toolbarView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(82)
+        weatherStateViews.forEach {
+            weatherTimelineContentView.addArrangedSubview($0)
         }
     }
     
