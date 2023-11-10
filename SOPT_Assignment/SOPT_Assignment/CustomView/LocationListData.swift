@@ -15,7 +15,7 @@ struct LocationListData {
 }
 
 extension LocationListData {
-    static var data: [LocationListData] = [
+    static let dummyData: [LocationListData] = [
         LocationListData(titleText: "나의 위치", locationText: "의정부시", weatherText: "흐림", tempuratureText: "21°", tempuratureHighText: "최고:29°", tempuratureLowText: "최저:15°"),
         LocationListData(titleText: "나의 위치", locationText: "서울특별시", weatherText: "흐림", tempuratureText: "21°", tempuratureHighText: "최고:29°", tempuratureLowText: "최저:15°"),
         LocationListData(titleText: "나의 위치", locationText: "창원시", weatherText: "흐림", tempuratureText: "21°", tempuratureHighText: "최고:29°", tempuratureLowText: "최저:15°"),

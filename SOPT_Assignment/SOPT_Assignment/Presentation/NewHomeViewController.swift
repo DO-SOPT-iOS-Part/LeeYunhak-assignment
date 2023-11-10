@@ -16,7 +16,7 @@ final class NewHomeViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView = UITableView(frame: CGRect(), style: .insetGrouped)
-    
+    private let rightBarButton = UIBarButtonItem()
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ final class NewHomeViewController: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - @IBAction Properties
@@ -45,18 +46,27 @@ final class NewHomeViewController: UIViewController {
         // view
         self.view.backgroundColor = .black
         
-        // Navigation Controller
+        // Navigation Title
         self.navigationController?.navigationBar.do {
             $0.barStyle = .black
             $0.largeTitleTextAttributes = [.font: UIFont(name: "SFProDisplay-Bold", size: 36) ?? UIFont()]
             $0.titleTextAttributes = [.foregroundColor: UIColor.white]
             $0.prefersLargeTitles = true
+            $0.tintColor = .white
         }
         self.navigationItem.do {
             $0.title = navigationTitleText
             $0.searchController = searchController
             $0.hidesSearchBarWhenScrolling = false
             
+        }
+        
+        // Navigation Bar Button Item
+        rightBarButton.do {
+            $0.image = UIImage(named: "more")
+        }
+        self.navigationController?.navigationBar.do {
+            $0.topItem?.rightBarButtonItem = rightBarButton
         }
         
         // UISearchController
@@ -95,19 +105,19 @@ final class NewHomeViewController: UIViewController {
 
 extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LocationListData.data.count
+        return LocationListData.dummyData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else {return UITableViewCell()}
-        cell.bindData(data: LocationListData.data[indexPath.row])
+        cell.bindData(data: LocationListData.dummyData[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCellData = LocationListData.data[indexPath.row]
-        let detailVC = DetailViewController()
+        let selectedCellData = LocationListData.dummyData[indexPath.row]
+        let detailVC = NewDetailViewController()
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -99,39 +99,27 @@ final class LocationListButton: UIView {
         )
         
         titleLabel.snp.makeConstraints {
-            $0.width.equalTo(94)
-            $0.height.equalTo(32)
             $0.leading.equalToSuperview().inset(16)
             $0.top.equalToSuperview().inset(10)
         }
         locationLabel.snp.makeConstraints {
-            $0.width.equalTo(63)
-            $0.height.equalTo(20)
             $0.leading.equalToSuperview().inset(16)
             $0.top.equalTo(titleLabel.snp.bottom).offset(2)
         }
         
         weatherLabel.snp.makeConstraints {
-            $0.width.equalTo(30)
-            $0.height.equalTo(20)
             $0.leading.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(10)
         }
         tempuratureLabel.snp.makeConstraints {
-            //$0.width.equalTo(70)
-            $0.height.equalTo(60)
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalToSuperview().inset(4)
         }
         tempuratureLowLabel.snp.makeConstraints {
-            //$0.width.equalTo(57)
-            $0.height.equalTo(20)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(10)
         }
         tempuratureHighLabel.snp.makeConstraints {
-            //$0.width.equalTo(60)
-            $0.height.equalTo(20)
             $0.trailing.equalTo(tempuratureLowLabel.snp.leading).offset(-6)
             $0.bottom.equalToSuperview().inset(10)
         }

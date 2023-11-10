@@ -1,14 +1,16 @@
 //
-//  DetailViewController.swift
+//  NewDetailViewController.swift
 //  SOPT_Assignment
 //
-//  Created by 이윤학 on 10/26/23.
+//  Created by 이윤학 on 11/10/23.
 //
+
 
 import UIKit
 import SnapKit
+import Then
 
-final class DetailViewController: UIViewController {
+final class NewDetailViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -31,14 +33,9 @@ final class DetailViewController: UIViewController {
     private lazy var weatherTimelineContentView = UIStackView()
     private lazy var weatherStateViews: [WeatherStateView] = WeatherState.dummyData.map {
         return WeatherStateView(timeText: $0.timeText, weatherimageName: $0.weatherimageName, temperature: $0.temperature)
-    }    
+    }
     
-    private lazy var toolbarView = UIView()
-    private lazy var mapButton = UIButton()
-    private lazy var backMenuButton = UIButton()
-    private lazy var indexStackView = UIStackView()
-    private lazy var currentButton = UIButton()
-    private lazy var nextButton = UIButton()
+    private let toolbarView = DetailVCToolBarView()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -58,7 +55,6 @@ final class DetailViewController: UIViewController {
     // MARK: - @Functions
     // UI 세팅 작업
     private func setupStyle() {
-        
         backgroundImageView.setupStyle {
             $0.image = .mainBackground
             $0.contentMode = .scaleAspectFill
@@ -108,8 +104,6 @@ final class DetailViewController: UIViewController {
                 text: "최고:29°  최저:15°"
             )
         }
-    
-        
         detailContentView.backgroundColor = UIColor(white: 1, alpha: 0.03)
         detailContentView.layer.cornerRadius = 15
         detailContentView.layer.borderWidth = 0.5
@@ -134,30 +128,8 @@ final class DetailViewController: UIViewController {
             $0.spacing = 22
         }
         
-        // ToolBarView
-        toolbarView.addTopBorder(with: UIColor(white: 1, alpha: 0.3), andWidth: 0.4)
-        
-        indexStackView.do {
-            $0.axis = .horizontal
-            $0.alignment = .center
-            $0.spacing = 4
-        }
-        
-        mapButton.do {
-            $0.setImage(.map, for: .normal)
-        }
-        
-        backMenuButton.do {
-            $0.setImage(.listBullet, for: .normal)
+        toolbarView.backMenuButton.do {
             $0.addTarget(self, action: #selector(navigationpop), for: .touchUpInside)
-        }
-        
-        currentButton.do {
-            $0.setImage(.paperPlane, for: .normal)
-        }
-        
-        nextButton.do {
-            $0.setImage(.dot, for: .normal)
         }
         
     }
@@ -182,17 +154,6 @@ final class DetailViewController: UIViewController {
         weatherStateViews.forEach {
             weatherTimelineContentView.addArrangedSubview($0)
         }
-        
-        toolbarView.addSubViews(
-            mapButton, indexStackView, backMenuButton
-        )
-        indexStackView.addArrangedSubViews(
-            currentButton, nextButton
-        )
-        
-        
-    
-        
         
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -238,30 +199,11 @@ final class DetailViewController: UIViewController {
             $0.height.equalToSuperview()
         }
         
-        
         toolbarView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(82)
         }
-        
-        mapButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(10)
-            $0.top.equalToSuperview().inset(4)
-        }
-        
-        backMenuButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(9)
-            $0.top.equalToSuperview().inset(4)
-        }
-        
-        indexStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(14)
-            $0.centerX.equalToSuperview()
-        }
-        
-        
-        
     }
     
 }
