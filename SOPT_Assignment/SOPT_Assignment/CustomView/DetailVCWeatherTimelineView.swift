@@ -14,26 +14,25 @@ final class DetailVCWeatherTimelineView: UIView {
     private let detailContentView = UIView()
     private let descriptionText = UILabel()
     private let dividerView = UIView()
-    private let collectionView = UICollectionView()
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    private let weatherTimelineScrollView = UIScrollView()
-    private let weatherTimelineContentView = UIStackView()
-    private let weatherStateViews: [WeatherStateView] = WeatherState.dummyData.map {
-        return WeatherStateView(timeText: $0.timeText, weatherimageName: $0.weatherimageName, temperature: $0.temperature)
-    }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     
-    func setupStyle() {
+    private func setUI() {
+        setupStyle()
+        setupLayout()
+        setCollectionViewConfig()
+    }
+    
+    private func setupStyle() {
         detailContentView.do {
             $0.backgroundColor = UIColor(white: 1, alpha: 0.03)
             $0.layer.cornerRadius = 15
@@ -52,17 +51,17 @@ final class DetailVCWeatherTimelineView: UIView {
             $0.addTopBorder(with: UIColor(white: 1, alpha: 0.5), andWidth: 0.2)
         }
         
-        weatherTimelineScrollView.setupStyle {
-            $0.alwaysBounceHorizontal = true
+        collectionView.do {
+            let flowLayout = UICollectionViewFlowLayout().then {
+                $0.scrollDirection = .horizontal
+            }
+            $0.setCollectionViewLayout(flowLayout, animated: false)
+            $0.backgroundColor = .clear
             $0.showsHorizontalScrollIndicator = false
-        }
-        weatherTimelineContentView.setupStyle {
-            $0.axis = .horizontal
-            $0.spacing = 22
         }
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         self.addSubViews(detailContentView)
         
         detailContentView.snp.makeConstraints {
@@ -70,7 +69,7 @@ final class DetailVCWeatherTimelineView: UIView {
         }
         
         detailContentView.addSubViews(
-            descriptionText, dividerView, weatherTimelineScrollView
+            descriptionText, dividerView, collectionView
         )
         
         descriptionText.snp.makeConstraints {
@@ -85,34 +84,42 @@ final class DetailVCWeatherTimelineView: UIView {
             $0.leading.equalToSuperview().inset(14)
         }
         
-        weatherTimelineScrollView.snp.makeConstraints {
-            $0.top.equalTo(dividerView).offset(10)
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(dividerView).offset(14)
             $0.bottom.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().inset(15)
             $0.trailing.equalToSuperview()
         }
         
-        weatherTimelineScrollView.addSubViews(weatherTimelineContentView)
-        
-        weatherTimelineContentView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
-            $0.height.equalToSuperview()
-        }
-        
-        weatherStateViews.forEach {
-            weatherTimelineContentView.addArrangedSubview($0)
-        }
+      
+    }
+    
+    private func setCollectionViewConfig() {
+        self.collectionView.register(WeatherTimelineCollectionViewCell.self, forCellWithReuseIdentifier: WeatherTimelineCollectionViewCell.identifier)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
 }
 
-//extension DetailVCWeatherTimelineView: UICollectionViewDataSource, UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
+extension DetailVCWeatherTimelineView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 44, height: collectionView.frame.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 22
+    }
+}
+
+extension DetailVCWeatherTimelineView: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return WeatherState.dummyData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherTimelineCollectionViewCell.identifier, for: indexPath) as? WeatherTimelineCollectionViewCell else {return UICollectionViewCell()}
+        
+        item.bindData(data: WeatherState.dummyData[indexPath.row])
+                
+        return item
+    }
+}

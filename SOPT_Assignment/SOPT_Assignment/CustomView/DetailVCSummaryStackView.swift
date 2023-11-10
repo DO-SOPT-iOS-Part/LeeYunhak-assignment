@@ -29,7 +29,7 @@ final class DetailVCSummaryStackView: UIView {
         setupLayout()
     }
     
-    func setupStyle() {
+    private func setupStyle() {
         summaryStackView.setupStyle {
             $0.axis = .vertical
             $0.alignment = .center
@@ -65,7 +65,7 @@ final class DetailVCSummaryStackView: UIView {
         }
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         self.addSubViews(summaryStackView)
         
         summaryStackView.snp.makeConstraints {
