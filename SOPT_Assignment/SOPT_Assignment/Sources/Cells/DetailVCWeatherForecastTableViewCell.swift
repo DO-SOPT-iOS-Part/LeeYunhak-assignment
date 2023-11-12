@@ -25,7 +25,7 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -35,13 +35,14 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     
     // MARK: - @Functions
     // 전체 세팅
-    private func setup() {
-        setupUI()
-        setupLayout()
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
     
     // UI 세팅
-    private func setupUI() {
+    private func setStyle() {
         self.do {
             $0.backgroundColor = .clear
         }
@@ -52,11 +53,13 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
                 text: "오늘"
             )
         }
+        
         stackView.do {
             $0.axis = .vertical
             $0.spacing = 0.85
             $0.alignment = .center
         }
+        
         percentageLabel.do {
             $0.setBasic(
                 font: UIFont(name: "SFProDisplay-Medium", size: 15),
@@ -97,11 +100,7 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
     }
     
     // 레이아웃 세팅
-    private func setupLayout() {
-        self.contentView.addSubViews(dayLabel, stackView, temperatureLowLabel, temperatureLineGraphImage, temperatureHighLabel)
-        
-        stackView.addArrangedSubViews(weatherImage, percentageLabel)
-        
+    private func setLayout() {
         dayLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)
             $0.leading.equalToSuperview().inset(16)
@@ -113,7 +112,6 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
             $0.centerY.equalToSuperview()
             
         }
-        
         
         temperatureLowLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(14)
@@ -129,11 +127,15 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
             $0.top.equalToSuperview().inset(14)
             $0.trailing.equalToSuperview().inset(17)
         }
-        
-        
     }
-    
-    // 데이터 바인딩.
+    private func setHierarchy() {
+        self.contentView.addSubViews(dayLabel, stackView, temperatureLowLabel, temperatureLineGraphImage, temperatureHighLabel)
+        
+        stackView.addArrangedSubViews(weatherImage, percentageLabel)
+    }
+}
+
+extension DetailVCWeatherForecastTableViewCell {
     func bindData(data: WeatherForecastData) {
         self.dayLabel.text = data.dayText.rawValue
         self.weatherImage.image = data.weatherImage
@@ -142,4 +144,5 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
         self.temperatureLowLabel.text = "\(data.tempuratureHighNumber)°"
         self.temperatureLineGraphImage.image = data.temperatureLineGraphImage
     }
+
 }

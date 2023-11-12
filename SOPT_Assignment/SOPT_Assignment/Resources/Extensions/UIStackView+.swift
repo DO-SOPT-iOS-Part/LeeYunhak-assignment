@@ -14,8 +14,4 @@ extension UIStackView {
             self.addArrangedSubview($0)
         }
     }
-    
-    func setupStyle (_ todo: (UIStackView) -> ()) {
-        todo(self)
-    }
 }

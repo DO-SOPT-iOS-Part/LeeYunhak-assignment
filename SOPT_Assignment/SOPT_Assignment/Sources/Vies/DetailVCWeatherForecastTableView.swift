@@ -24,12 +24,13 @@ final class DetailVCWeatherForecastTableView: UIView {
     }
     
     private func setUI() {
-        setupStyle()
-        setupLayout()
-        setupTableView()
+        setTableViewConfig()
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
     
-    private func setupStyle() {
+    private func setStyle() {
         self.do {
             $0.backgroundColor = UIColor(white: 1, alpha: 0.03)
             $0.layer.cornerRadius = 15
@@ -45,18 +46,19 @@ final class DetailVCWeatherForecastTableView: UIView {
             $0.separatorStyle = .singleLine
             $0.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         }
-        
     }
 
-    private func setupLayout() {
-        self.addSubViews(tableView)
-        
+    private func setLayout() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
-    private func setupTableView() {
+    private func setHierarchy() {
+        self.addSubViews(tableView)
+    }
+    
+    private func setTableViewConfig() {
         self.tableView.register(DetailVCWeatherForecastTableViewCell.self, forCellReuseIdentifier: DetailVCWeatherForecastTableViewCell.identifier)
         self.tableView.register(DetailVCWeatherForecastHeader.self, forHeaderFooterViewReuseIdentifier: DetailVCWeatherForecastHeader.identifier)
         self.tableView.delegate = self
@@ -86,6 +88,7 @@ extension DetailVCWeatherForecastTableView: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 38
     }

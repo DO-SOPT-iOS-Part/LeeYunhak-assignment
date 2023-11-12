@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class NewDetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
     // MARK: - Properties
 
@@ -23,11 +23,11 @@ final class NewDetailViewController: UIViewController {
     private let weatherTimelineView = DetailVCWeatherTimelineView()
     private let weatherForecastTableView = DetailVCWeatherForecastTableView()
     private let toolbarView = DetailVCToolBarView()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -40,7 +40,14 @@ final class NewDetailViewController: UIViewController {
     
     // MARK: - @Functions
     // UI 세팅 작업
-    private func setupStyle() {
+    
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
+    }
+    
+    private func setStyle() {
         backgroundImageView.do {
             $0.image = .mainBackground
             $0.contentMode = .scaleAspectFill
@@ -62,12 +69,7 @@ final class NewDetailViewController: UIViewController {
         }
     }
     
-    // 레이아웃 세팅
-    private func setupLayout() {
-        view.addSubViews(
-            backgroundImageView, pageScrollView, toolbarView
-        )
-        
+    private func setLayout() {
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -84,26 +86,35 @@ final class NewDetailViewController: UIViewController {
             $0.height.equalTo(82)
         }
         
-        pageScrollView.addSubViews(pageContentView)
-        
         pageContentView.snp.makeConstraints{
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
-        
-        pageContentView.addArrangedSubViews(summaryStackView, weatherTimelineView, weatherForecastTableView)
-        
+
         weatherTimelineView.snp.makeConstraints {
             $0.height.equalTo(212)
             $0.horizontalEdges.equalToSuperview()
         }
+        
         weatherForecastTableView.snp.makeConstraints {
             $0.height.equalTo(675)
-
             $0.horizontalEdges.equalToSuperview()
         }
     }
     
+    private func setHierarchy() {
+        view.addSubViews(
+            backgroundImageView, pageScrollView, toolbarView
+        )
+        
+        pageScrollView.addSubViews(
+            pageContentView
+        )
+        
+        pageContentView.addArrangedSubViews(
+            summaryStackView, weatherTimelineView, weatherForecastTableView
+        )
+    }
 }
 
 // MARK: - Extensions

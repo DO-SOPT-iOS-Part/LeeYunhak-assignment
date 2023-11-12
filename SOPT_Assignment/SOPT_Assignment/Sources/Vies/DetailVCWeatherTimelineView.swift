@@ -25,12 +25,13 @@ final class DetailVCWeatherTimelineView: UIView {
     }
     
     private func setUI() {
-        setupStyle()
-        setupLayout()
         setCollectionViewConfig()
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
     
-    private func setupStyle() {
+    private func setStyle() {
         self.do {
             $0.backgroundColor = UIColor(white: 1, alpha: 0.03)
             $0.layer.cornerRadius = 15
@@ -45,6 +46,7 @@ final class DetailVCWeatherTimelineView: UIView {
             )
             $0.numberOfLines = 2
         }
+        
         dividerView.do {
             $0.addTopBorder(with: UIColor(white: 1, alpha: 0.5), andWidth: 0.2)
         }
@@ -59,11 +61,7 @@ final class DetailVCWeatherTimelineView: UIView {
         }
     }
     
-    private func setupLayout() {
-        self.addSubViews(
-            descriptionText, dividerView, collectionView
-        )
-        
+    private func setLayout() {
         descriptionText.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.horizontalEdges.equalToSuperview().inset(15)
@@ -82,12 +80,16 @@ final class DetailVCWeatherTimelineView: UIView {
             $0.leading.equalToSuperview().inset(15)
             $0.trailing.equalToSuperview()
         }
-        
-      
+    }
+    
+    private func setHierarchy() {
+        self.addSubViews(
+            descriptionText, dividerView, collectionView
+        )
     }
     
     private func setCollectionViewConfig() {
-        self.collectionView.register(WeatherTimelineCollectionViewCell.self, forCellWithReuseIdentifier: WeatherTimelineCollectionViewCell.identifier)
+        self.collectionView.register(DetailVCWeatherTimelineCollectionViewCell.self, forCellWithReuseIdentifier: DetailVCWeatherTimelineCollectionViewCell.identifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -108,7 +110,7 @@ extension DetailVCWeatherTimelineView: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherTimelineCollectionViewCell.identifier, for: indexPath) as? WeatherTimelineCollectionViewCell else {return UICollectionViewCell()}
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: DetailVCWeatherTimelineCollectionViewCell.identifier, for: indexPath) as? DetailVCWeatherTimelineCollectionViewCell else {return UICollectionViewCell()}
         
         item.bindData(data: WeatherState.dummyData[indexPath.row])
                 

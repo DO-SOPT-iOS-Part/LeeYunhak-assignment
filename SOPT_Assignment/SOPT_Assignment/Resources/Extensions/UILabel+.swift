@@ -13,7 +13,4 @@ extension UILabel {
         self.text = text
         self.textColor = textColor
     }
-    func setupStyle (_ todo: (UILabel) -> ()) {
-        todo(self)
-    }
 }

@@ -19,24 +19,29 @@ final class DetailVCWeatherForecastHeader: UITableViewHeaderFooterView {
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
+    }
     
-    
-    private func setupStyle() {
+    private func setStyle() {
         stackView.do {
             $0.axis = .horizontal
             $0.alignment = .center
             $0.spacing = 5
         }
+        
         imageView.do {
             $0.image = .calendar
         }
+        
         titleLabel.do {
             $0.setBasic(
                 font: UIFont(name: "SFProDisplay-Medium", size: 15),
@@ -46,13 +51,15 @@ final class DetailVCWeatherForecastHeader: UITableViewHeaderFooterView {
         }
     }
     
-    private func setupLayout() {
-        self.addSubViews(stackView)
+    private func setLayout() {
         stackView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(8)
-            $0.top.equalToSuperview()
             $0.verticalEdges.equalToSuperview()
         }
+    }
+    
+    private func setHierarchy() {
+        self.addSubViews(stackView)
         stackView.addArrangedSubViews(imageView, titleLabel)
     }
 }

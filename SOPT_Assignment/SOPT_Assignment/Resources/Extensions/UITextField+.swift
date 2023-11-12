@@ -8,7 +8,6 @@
 import UIKit
 
 extension UITextField {
-    
     func setPlaceholderColor(_ placeholderColor: UIColor, _ font: UIFont?) {
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",
@@ -17,8 +16,5 @@ extension UITextField {
                 .font: font
             ].compactMapValues { $0 }
         )
-    }
-    func setupStyle (_ todo: (UITextField) -> ()) {
-        todo(self)
     }
 }

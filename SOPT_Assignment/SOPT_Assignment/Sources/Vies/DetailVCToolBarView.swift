@@ -19,52 +19,47 @@ final class DetailVCToolBarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setupStyle() {
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
+    }
+    private func setStyle() {
         self.do {
             $0.addTopBorder(with: UIColor(white: 1, alpha: 0.3), andWidth: 0.4)
             $0.backgroundColor = UIColor(hexCode: "#2A3040")
         }
         
-        indexStackView.setupStyle {
+        indexStackView.do {
             $0.axis = .horizontal
             $0.alignment = .center
             $0.spacing = 4
         }
         
-        mapButton.setupStyle {
+        mapButton.do {
             $0.setImage(.map, for: .normal)
         }
         
-        backMenuButton.setupStyle {
+        backMenuButton.do {
             $0.setImage(.listBullet, for: .normal)
         }
         
-        currentButton.setupStyle {
+        currentButton.do {
             $0.setImage(.paperPlane, for: .normal)
         }
         
-        nextButton.setupStyle {
+        nextButton.do {
             $0.setImage(.dot, for: .normal)
         }
     }
     
-    private func setupLayout() {
-        self.addSubViews(
-            mapButton, indexStackView, backMenuButton
-        )
-        
-        indexStackView.addArrangedSubViews(
-            currentButton, nextButton
-        )
-        
+    private func setLayout() {
         mapButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(10)
             $0.top.equalToSuperview().inset(4)
@@ -79,5 +74,13 @@ final class DetailVCToolBarView: UIView {
             $0.top.equalToSuperview().inset(14)
             $0.centerX.equalToSuperview()
         }
+    }
+    private func setHierarchy() {
+        self.addSubViews(
+            mapButton, indexStackView, backMenuButton
+        )
+        indexStackView.addArrangedSubViews(
+            currentButton, nextButton
+        )
     }
 }

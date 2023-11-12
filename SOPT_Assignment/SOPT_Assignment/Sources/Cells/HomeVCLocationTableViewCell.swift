@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-final class LocationTableViewCell: UITableViewCell {
+final class HomeVCLocationTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    static let identifier: String = "LocationTableViewCell"
+    static let identifier: String = "HomeVCLocationTableViewCell"
     
     private let backgroundImageView = UIImageView()
     private let titleLabel = UILabel()
@@ -26,7 +26,7 @@ final class LocationTableViewCell: UITableViewCell {
     // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -36,13 +36,14 @@ final class LocationTableViewCell: UITableViewCell {
     
     // MARK: - @Functions
     // 전체 세팅
-    private func setup() {
-        setupUI()
-        setupLayout()
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
 
     // UI 세팅
-    private func setupUI() {
+    private func setStyle() {
         self.do {
             $0.backgroundColor = .clear
             $0.selectionStyle = .none
@@ -97,22 +98,14 @@ final class LocationTableViewCell: UITableViewCell {
                 text: "최저:15°"
             )
         }
-        
-
     }
     
     // 레이아웃 세팅
-    private func setupLayout() {
-        self.contentView.addSubViews(backgroundImageView)
-        self.backgroundImageView.addSubViews(
-            titleLabel, locationLabel, weatherLabel, tempuratureLabel, tempuratureHighLabel, tempuratureLowLabel
-        ) 
-          
+    private func setLayout() {
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
        
-        
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
             $0.top.equalToSuperview().inset(10)
@@ -142,8 +135,14 @@ final class LocationTableViewCell: UITableViewCell {
             $0.trailing.equalTo(tempuratureLowLabel.snp.leading).offset(-6)
             $0.bottom.equalToSuperview().inset(10)
         }
+    }
+    
+    private func setHierarchy() {
+        self.contentView.addSubViews(backgroundImageView)
         
-        
+        self.backgroundImageView.addSubViews(
+            titleLabel, locationLabel, weatherLabel, tempuratureLabel, tempuratureHighLabel, tempuratureLowLabel
+        )
     }
     
     // Cell 간격 조정
@@ -151,8 +150,9 @@ final class LocationTableViewCell: UITableViewCell {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 16, right: 20))
     }
-    
-    // 데이터 바인딩.
+}
+
+extension HomeVCLocationTableViewCell {
     func bindData(data: LocationListData) {
         self.titleLabel.text = data.titleText
         self.locationLabel.text = data.locationText

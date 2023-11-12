@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 import Then
 
-final class WeatherTimelineCollectionViewCell: UICollectionViewCell {
+final class DetailVCWeatherTimelineCollectionViewCell: UICollectionViewCell {
     
-    static var identifier: String = "WeatherTimelineCollectionViewCell"
+    static var identifier: String = "DetailVCWeatherTimelineCollectionViewCell"
     
     private let weatherStateStackView = UIStackView()
     private let timeLabel = UILabel()
@@ -20,54 +20,61 @@ final class WeatherTimelineCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupStyle()
-        setupLayout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupStyle() {
-        weatherStateStackView.setupStyle {
+    private func setUI() {
+        setStyle()
+        setHierarchy()
+        setLayout()
+    }
+    
+    private func setStyle() {
+        weatherStateStackView.do {
             $0.axis = .vertical
             $0.alignment = .center
             $0.spacing = 14
         }
         
-        timeLabel.setupStyle {
+        timeLabel.do {
             $0.setBasic(
                 font: UIFont(name: "SFProDisplay-Medium", size: 17),
                 text: "Now"
             )
         }
         
-        weatherIcon.setupStyle {
+        weatherIcon.do {
             $0.image = .cloudBolt
         }
         
-        temperatureLabel.setupStyle {
+        temperatureLabel.do {
             $0.setBasic(
                 font: UIFont(name: "SFProDisplay-Medium", size: 22),
                 text: "21°"
             )
         }
-        
     }
     
-    private func setupLayout() {
+    private func setLayout() {
+        weatherStateStackView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+        }
+    }
+    
+    private func setHierarchy() {
         self.addSubViews(weatherStateStackView)
         
         weatherStateStackView.addArrangedSubViews(
             timeLabel, weatherIcon, temperatureLabel
         )
-        
-        weatherStateStackView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
-        }
-
     }
-    
+}
+
+extension DetailVCWeatherTimelineCollectionViewCell {
     func bindData(data: WeatherState) {
         self.timeLabel.text = data.timeText
         self.weatherIcon.image = UIImage(named: data.weatherimageName)

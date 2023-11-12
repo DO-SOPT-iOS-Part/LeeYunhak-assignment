@@ -8,7 +8,7 @@
 import UIKit
 import Then
 
-final class NewHomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     private let navigationTitleText = "날씨"
@@ -17,10 +17,11 @@ final class NewHomeViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView = UITableView(frame: CGRect(), style: .plain)
     private let rightBarButton = UIBarButtonItem()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,14 +36,15 @@ final class NewHomeViewController: UIViewController {
     
     // MARK: - @Functions
     // 전체 세팅
-    private func setup() {
-        setupUI()
-        setupTableView()
-        setupLayout()
+    private func setUI() {
+        setTableViewConfig()
+        setStyle()
+        setHierarchy()
+        setLayout()
     }
     
     // UI 세팅
-    private func setupUI() {
+    private func setStyle() {
         // view
         self.view.backgroundColor = .black
         
@@ -84,17 +86,19 @@ final class NewHomeViewController: UIViewController {
     }
     
     // 레이아웃 세팅
-    private func setupLayout() {
-        self.view.addSubview(tableView)
-        
+    private func setLayout() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
+    private func setHierarchy() {
+        self.view.addSubview(tableView)
+    }
+    
     // TableView 세팅
-    private func setupTableView() {
-        self.tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.identifier)
+    private func setTableViewConfig() {
+        self.tableView.register(HomeVCLocationTableViewCell.self, forCellReuseIdentifier: HomeVCLocationTableViewCell.identifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -103,20 +107,20 @@ final class NewHomeViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LocationListData.dummyData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeVCLocationTableViewCell.identifier, for: indexPath) as? HomeVCLocationTableViewCell else {return UITableViewCell()}
         cell.bindData(data: LocationListData.dummyData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let selectedCellData = LocationListData.dummyData[indexPath.row]
-        let detailVC = NewDetailViewController()
+        let detailVC = DetailViewController()
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
