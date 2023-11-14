@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				39CCE7AC2AFF2879009405FA /* ViewControllers */,
-				39CCE7AE2AFF28DD009405FA /* Vies */,
+				39CCE7AE2AFF28DD009405FA /* Views */,
 				39CCE7AD2AFF288C009405FA /* Cells */,
 				39CCE7AF2AFF29A5009405FA /* Model */,
 			);
@@ -173,7 +173,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		39CCE7AE2AFF28DD009405FA /* Vies */ = {
+		39CCE7AE2AFF28DD009405FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				390C9DDF2AFDE0E60052A7A9 /* DetailVCSummaryStackView.swift */,
@@ -182,7 +182,7 @@
 				390C9DE12AFDE5B00052A7A9 /* DetailVCWeatherTimelineView.swift */,
 				390C9DDB2AFDC66D0052A7A9 /* DetailVCToolBarView.swift */,
 			);
-			path = Vies;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		39CCE7AF2AFF29A5009405FA /* Model */ = {
