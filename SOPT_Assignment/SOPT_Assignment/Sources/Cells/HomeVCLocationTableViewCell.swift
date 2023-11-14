@@ -160,6 +160,14 @@ extension HomeVCLocationTableViewCell {
         self.tempuratureLabel.text = data.tempuratureText
         self.tempuratureHighLabel.text = data.tempuratureHighText
         self.tempuratureLowLabel.text = data.tempuratureLowText
-        
+    }
+    
+    func bindOnlineData(data: CurrentLocationWeatherData) {
+        self.titleLabel.text = data.name
+        self.locationLabel.text = "Not Yet"
+        self.weatherLabel.text = data.weather[0].main
+        self.tempuratureLabel.text = "\(lround(data.main.temp))°"
+        self.tempuratureHighLabel.text = "\(lround(data.main.temp_max))°"
+        self.tempuratureLowLabel.text = "\(lround(data.main.temp_min))°"
     }
 }

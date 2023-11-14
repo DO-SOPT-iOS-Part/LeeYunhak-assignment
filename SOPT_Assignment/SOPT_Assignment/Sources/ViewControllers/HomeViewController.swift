@@ -10,7 +10,10 @@ import Then
 
 final class HomeViewController: UIViewController {
     
+    
     // MARK: - Properties
+    private var currentLocationWeatherData: [CurrentLocationWeatherData] = []
+    
     private let navigationTitleText = "날씨"
     private let searchBarPlaceHolderText = "도시 또는 공항 검색"
     
@@ -21,7 +24,14 @@ final class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        self.getData(of: "gumi")
+        self.getData(of: "seoul")
+        self.getData(of: "jeju")
+        self.getData(of: "busan")
+        self.getData(of: "seosan")
+        self.getData(of: "sokcho")
+        
+        self.setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,12 +119,12 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LocationListData.dummyData.count
+        return currentLocationWeatherData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeVCLocationTableViewCell.identifier, for: indexPath) as? HomeVCLocationTableViewCell else {return UITableViewCell()}
-        cell.bindData(data: LocationListData.dummyData[indexPath.row])
+        cell.bindOnlineData(data: currentLocationWeatherData[indexPath.row])
         return cell
     }
     
@@ -124,3 +134,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
+
+extension HomeViewController {
+    func getData(of location: String) {
+        let baseURL = Config.plistValue(forKey: Config.Keys.Plist.weatherBaseURL)
+        let APIKey = Config.plistValue(forKey: Config.Keys.Plist.weatherAPIKey)
+        
+        guard let url = URL(string: baseURL + "/weather?q=\(location)" + "&units=metric" + "&appid=\(APIKey)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+            guard let data = data else { return }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(CurrentLocationWeatherData.self, from: data)
+                self.currentLocationWeatherData.append(decodedData)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch {
+                print(error)
+            }
+        }.resume()
+    }
+}
+
