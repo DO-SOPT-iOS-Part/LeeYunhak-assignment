@@ -37,6 +37,8 @@
 		39D2E7112AF8E6C8006E47C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7102AF8E6C8006E47C5 /* HomeViewController.swift */; };
 		39D2E7132AF9E6C7006E47C5 /* HomeVCLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7122AF9E6C7006E47C5 /* HomeVCLocationTableViewCell.swift */; };
 		39D2E7152AF9FFFC006E47C5 /* LocationListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2E7142AF9FFFC006E47C5 /* LocationListData.swift */; };
+		39D5E3362B03517600C44FD5 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39D5E3352B03517600C44FD5 /* Config.xcconfig */; };
+		39D5E3382B03539E00C44FD5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3372B03539E00C44FD5 /* Config.swift */; };
 		39DC1FE92AFD4CD700BC239F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DC1FE82AFD4CD700BC239F /* DetailViewController.swift */; };
 		39EE01AA2AEBC7DC00719D8D /* WeatherStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		39D2E7102AF8E6C8006E47C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		39D2E7122AF9E6C7006E47C5 /* HomeVCLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLocationTableViewCell.swift; sourceTree = "<group>"; };
 		39D2E7142AF9FFFC006E47C5 /* LocationListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListData.swift; sourceTree = "<group>"; };
+		39D5E3352B03517600C44FD5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		39D5E3372B03539E00C44FD5 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		39DC1FE82AFD4CD700BC239F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		39EE01A92AEBC7DC00719D8D /* WeatherStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,9 +140,9 @@
 			children = (
 				39E8CF9E2AE8CC5600E4A65D /* Resources */,
 				39CCE7AB2AFF285D009405FA /* Sources */,
-				39E8CF9C2AE8CC2200E4A65D /* Application */,
 				398C9AEA2AE6809300DF76B4 /* LaunchScreen.storyboard */,
 				398C9AED2AE6809300DF76B4 /* Info.plist */,
+				39D5E3352B03517600C44FD5 /* Config.xcconfig */,
 			);
 			path = SOPT_Assignment;
 			sourceTree = "<group>";
@@ -146,6 +150,7 @@
 		39CCE7AB2AFF285D009405FA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				39E8CF9C2AE8CC2200E4A65D /* Application */,
 				39CCE7AC2AFF2879009405FA /* ViewControllers */,
 				39CCE7AE2AFF28DD009405FA /* Views */,
 				39CCE7AD2AFF288C009405FA /* Cells */,
@@ -195,6 +200,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		39D5E3392B0355E400C44FD5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				39D5E3372B03539E00C44FD5 /* Config.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		39E8CF9C2AE8CC2200E4A65D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +223,7 @@
 				39251BD62AE98BAB0057F4D8 /* Extensions */,
 				398C9AE82AE6809300DF76B4 /* Assets.xcassets */,
 				393C68F12AE8C9C0003E2A5A /* Fonts */,
+				39D5E3392B0355E400C44FD5 /* Constants */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -285,6 +299,7 @@
 				393C68EF2AE8C99C003E2A5A /* SFProDisplay-Thin.otf in Resources */,
 				398C9AEC2AE6809300DF76B4 /* LaunchScreen.storyboard in Resources */,
 				393C68EB2AE8C99C003E2A5A /* SFProDisplay-Regular.otf in Resources */,
+				39D5E3362B03517600C44FD5 /* Config.xcconfig in Resources */,
 				393C68EE2AE8C99C003E2A5A /* SFProDisplay-Bold.otf in Resources */,
 				393C68EC2AE8C99C003E2A5A /* SFProDisplay-Light.otf in Resources */,
 				398C9AE92AE6809300DF76B4 /* Assets.xcassets in Resources */,
@@ -314,6 +329,7 @@
 				390C9DE62AFE1C910052A7A9 /* DetailVCWeatherTimelineCollectionViewCell.swift in Sources */,
 				390C9DE82AFE2F0C0052A7A9 /* DetailVCWeatherForecastTableView.swift in Sources */,
 				390C9DDC2AFDC66D0052A7A9 /* DetailVCToolBarView.swift in Sources */,
+				39D5E3382B03539E00C44FD5 /* Config.swift in Sources */,
 				39251BDC2AE98C3C0057F4D8 /* UITextField+.swift in Sources */,
 				39251BED2AEA66140057F4D8 /* CALayer+.swift in Sources */,
 				390C9DEA2AFE30570052A7A9 /* DetailVCWeatherForecastTableViewCell.swift in Sources */,
@@ -339,6 +355,7 @@
 /* Begin XCBuildConfiguration section */
 		398C9AEE2AE6809300DF76B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D5E3352B03517600C44FD5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -402,6 +419,7 @@
 		};
 		398C9AEF2AE6809300DF76B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D5E3352B03517600C44FD5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
