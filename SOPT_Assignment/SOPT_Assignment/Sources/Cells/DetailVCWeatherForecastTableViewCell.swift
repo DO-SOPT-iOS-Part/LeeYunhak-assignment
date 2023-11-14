@@ -141,7 +141,7 @@ extension DetailVCWeatherForecastTableViewCell {
         self.weatherImage.image = data.weatherImage
         self.percentageLabel.text = data.percentageText
         self.temperatureLowLabel.text = "\(data.tempuratureLowNumber)°"
-        self.temperatureLowLabel.text = "\(data.tempuratureHighNumber)°"
+        self.temperatureHighLabel.text = "\(data.tempuratureHighNumber)°"
         self.temperatureLineGraphImage.image = data.temperatureLineGraphImage
     }
 
