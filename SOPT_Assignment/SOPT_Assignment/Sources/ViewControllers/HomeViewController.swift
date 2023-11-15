@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Then
 
 final class HomeViewController: UIViewController {
@@ -24,13 +25,9 @@ final class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getData(of: "gumi")
-        self.getData(of: "seoul")
-        self.getData(of: "jeju")
-        self.getData(of: "busan")
-        self.getData(of: "seosan")
-        self.getData(of: "sokcho")
-        
+        Task {
+            try await self.updateTableView()
+        }
         self.setUI()
     }
     
@@ -136,29 +133,43 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController {
-    func getData(of location: String) {
+    func getData(of location: String) async throws -> CurrentLocationWeatherData? {
         let baseURL = Config.plistValue(forKey: Config.Keys.Plist.weatherBaseURL)
         let APIKey = Config.plistValue(forKey: Config.Keys.Plist.weatherAPIKey)
         
-        guard let url = URL(string: baseURL + "/weather?q=\(location)" + "&units=metric" + "&appid=\(APIKey)") else { return }
-        
+        guard let url = URL(string: baseURL + "/weather?q=\(location)" + "&units=metric" + "&lang=kr" + "&appid=\(APIKey)") else {
+            throw NetworkError.unknownError
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
-            guard let data = data else { return }
-            
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw NetworkError.responseError
+            }
+            let decodedData = try JSONDecoder().decode(CurrentLocationWeatherData.self, from: data)
+            return decodedData
+        }
+        catch {
+            print(error)
+        }
+        return nil
+    }
+    
+    func updateTableView() async throws {
+        for location in Location.allCases {
             do {
-                let decodedData = try JSONDecoder().decode(CurrentLocationWeatherData.self, from: data)
-                self.currentLocationWeatherData.append(decodedData)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                guard let data = try await self.getData(of: location.englishName()) else {
+                    throw NetworkError.unknownError
                 }
+                currentLocationWeatherData.append(data)
             }
             catch {
                 print(error)
             }
-        }.resume()
+            
+        }
+        self.tableView.reloadData()
     }
 }
 

@@ -153,7 +153,7 @@ final class HomeVCLocationTableViewCell: UITableViewCell {
 }
 
 extension HomeVCLocationTableViewCell {
-    func bindData(data: LocationListData) {
+    func bindDummyData(data: LocationListData) {
         self.titleLabel.text = data.titleText
         self.locationLabel.text = data.locationText
         self.weatherLabel.text = data.weatherText
@@ -163,11 +163,11 @@ extension HomeVCLocationTableViewCell {
     }
     
     func bindOnlineData(data: CurrentLocationWeatherData) {
-        self.titleLabel.text = data.name
+        self.titleLabel.text = Location.koreanName(of: data.name)
         self.locationLabel.text = "Not Yet"
-        self.weatherLabel.text = data.weather[0].main
+        self.weatherLabel.text = data.weather[0].description
         self.tempuratureLabel.text = "\(lround(data.main.temp))°"
-        self.tempuratureHighLabel.text = "\(lround(data.main.temp_max))°"
-        self.tempuratureLowLabel.text = "\(lround(data.main.temp_min))°"
+        self.tempuratureHighLabel.text = "최고:\(lround(data.main.tempMax))°"
+        self.tempuratureLowLabel.text = "최저:\(lround(data.main.tempMin))°"
     }
 }
