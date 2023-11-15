@@ -163,8 +163,13 @@ extension HomeVCLocationTableViewCell {
     }
     
     func bindOnlineData(data: CurrentLocationWeatherData) {
+        var formatter = DateFormatter().then {
+            $0.dateFormat = "HH:mm"
+        }
+        var currentTime = formatter.string(from: Date())
+        
         self.titleLabel.text = Location.koreanName(of: data.name)
-        self.locationLabel.text = "Not Yet"
+        self.locationLabel.text = currentTime
         self.weatherLabel.text = data.weather[0].description
         self.tempuratureLabel.text = "\(lround(data.main.temp))°"
         self.tempuratureHighLabel.text = "최고:\(lround(data.main.tempMax))°"
