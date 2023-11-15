@@ -109,8 +109,7 @@ final class DetailVCWeatherForecastTableViewCell: UITableViewCell {
         stackView.snp.makeConstraints {
             $0.leading.equalTo(dayLabel.snp.leading)
             $0.trailing.equalTo(temperatureLowLabel.snp.trailing)
-            $0.centerY.equalToSuperview()
-            
+            $0.top.equalToSuperview().inset(15)
         }
         
         temperatureLowLabel.snp.makeConstraints {
@@ -143,6 +142,13 @@ extension DetailVCWeatherForecastTableViewCell {
         self.temperatureLowLabel.text = "\(data.tempuratureLowNumber)°"
         self.temperatureHighLabel.text = "\(data.tempuratureHighNumber)°"
         self.temperatureLineGraphImage.image = data.temperatureLineGraphImage
+        updateLayout()
     }
-
+    
+    func updateLayout() {
+        guard percentageLabel.text != nil else { return }
+        stackView.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(7)
+        }
+    }
 }
