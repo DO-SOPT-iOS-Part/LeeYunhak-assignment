@@ -13,8 +13,6 @@ final class HomeViewController: UIViewController {
     
     
     // MARK: - Properties
-    private var currentLocationWeatherData: [CurrentLocationWeatherData] = []
-    
     private let navigationTitleText = "날씨"
     private let searchBarPlaceHolderText = "도시 또는 공항 검색"
     
@@ -115,18 +113,19 @@ final class HomeViewController: UIViewController {
 // tableView Confing
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentLocationWeatherData.count
+        return LocationListData.onlineData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeVCLocationTableViewCell.identifier, for: indexPath) as? HomeVCLocationTableViewCell else {return UITableViewCell()}
-        cell.bindOnlineData(data: currentLocationWeatherData[indexPath.row])
+        cell.bindData(data: LocationListData.onlineData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let selectedCellData = LocationListData.dummyData[indexPath.row]
+        let selectedCellData = LocationListData.onlineData[indexPath.row]
         let detailVC = DetailViewController()
+        detailVC.selectedCellData = selectedCellData
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -158,8 +157,9 @@ extension HomeViewController {
         Task {
             do {
                 for location in Location.allCases {
-                    let data = try await self.weatherInfo(of: location.englishName())
-                    currentLocationWeatherData.append(data)
+                    let data = try await self.weatherInfo(of: location.englishName)
+                    let locationListData = CurrentLocationWeatherData.bindOnlineData(data: data)
+                    LocationListData.onlineData.append(locationListData)
                 }
             } catch {
                 print(error)
