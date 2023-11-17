@@ -88,3 +88,14 @@ final class DetailVCSummaryStackView: UIView {
         )
     }
 }
+
+extension DetailVCSummaryStackView {
+    func bindData(data: LocationListData?) {
+        guard let locationdata = data else { return }
+    
+        self.locationLabel.text = locationdata.titleText
+        self.temperatureLabel.text = locationdata.tempuratureText
+        self.weatherLabel.text = locationdata.weatherText
+        self.temperatureRangeLabel.text = "\(locationdata.tempuratureHighText ?? "error")  \(locationdata.tempuratureLowText ?? "error")"
+    }
+}
