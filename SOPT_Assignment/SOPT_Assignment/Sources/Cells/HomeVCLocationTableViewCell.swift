@@ -160,6 +160,5 @@ extension HomeVCLocationTableViewCell {
         self.tempuratureLabel.text = data.tempuratureText
         self.tempuratureHighLabel.text = data.tempuratureHighText
         self.tempuratureLowLabel.text = data.tempuratureLowText
-        
     }
 }

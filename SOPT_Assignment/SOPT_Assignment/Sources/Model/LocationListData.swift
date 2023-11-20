@@ -4,8 +4,11 @@
 //
 //  Created by 이윤학 on 11/7/23.
 //
+import Foundation
 
 struct LocationListData {
+    static var onlineData: [LocationListData] = []
+    
     var titleText: String?
     var locationText: String?
     var weatherText: String?
