@@ -83,7 +83,7 @@ final class HomeVCLocationTableViewCell: UITableViewCell {
                 font: UIFont(name: "SFProDisplay-Light", size: 52),
                 text: "21°"
             )
-        }        
+        }
         
         tempuratureHighLabel.do {
             $0.setBasic(
@@ -153,26 +153,12 @@ final class HomeVCLocationTableViewCell: UITableViewCell {
 }
 
 extension HomeVCLocationTableViewCell {
-    func bindDummyData(data: LocationListData) {
+    func bindData(data: LocationListData) {
         self.titleLabel.text = data.titleText
         self.locationLabel.text = data.locationText
         self.weatherLabel.text = data.weatherText
         self.tempuratureLabel.text = data.tempuratureText
         self.tempuratureHighLabel.text = data.tempuratureHighText
         self.tempuratureLowLabel.text = data.tempuratureLowText
-    }
-    
-    func bindOnlineData(data: CurrentLocationWeatherData) {
-        var formatter = DateFormatter().then {
-            $0.dateFormat = "HH:mm"
-        }
-        var currentTime = formatter.string(from: Date())
-        
-        self.titleLabel.text = Location.koreanName(of: data.name)
-        self.locationLabel.text = currentTime
-        self.weatherLabel.text = data.weather[0].description
-        self.tempuratureLabel.text = "\(lround(data.main.temp))°"
-        self.tempuratureHighLabel.text = "최고:\(lround(data.main.tempMax))°"
-        self.tempuratureLowLabel.text = "최저:\(lround(data.main.tempMin))°"
     }
 }

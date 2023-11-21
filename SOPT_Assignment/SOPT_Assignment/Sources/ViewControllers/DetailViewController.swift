@@ -13,7 +13,7 @@ import Then
 final class DetailViewController: UIViewController {
     
     // MARK: - Properties
-
+    var selectedCellData: LocationListData?
     private let backgroundImageView = UIImageView()
     
     private let pageScrollView = UIScrollView()
@@ -63,6 +63,7 @@ final class DetailViewController: UIViewController {
             $0.alignment = .center
             $0.spacing = 20
         }
+        summaryStackView.bindData(data: selectedCellData)
         
         toolbarView.backMenuButton.do {
             $0.addTarget(self, action: #selector(navigationpop), for: .touchUpInside)
@@ -118,4 +119,3 @@ final class DetailViewController: UIViewController {
 }
 
 // MARK: - Extensions
-

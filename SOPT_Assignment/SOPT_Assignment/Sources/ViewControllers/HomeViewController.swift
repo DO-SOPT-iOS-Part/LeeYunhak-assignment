@@ -13,8 +13,6 @@ final class HomeViewController: UIViewController {
     
     
     // MARK: - Properties
-    private var currentLocationWeatherData: [CurrentLocationWeatherData] = []
-    
     private let navigationTitleText = "날씨"
     private let searchBarPlaceHolderText = "도시 또는 공항 검색"
     
@@ -25,10 +23,7 @@ final class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            try await self.updateTableView()
-        }
-        self.setUI()
+        setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +40,7 @@ final class HomeViewController: UIViewController {
     // 전체 세팅
     private func setUI() {
         setTableViewConfig()
+        updateTableViewData()
         setStyle()
         setHierarchy()
         setLayout()
@@ -114,62 +110,61 @@ final class HomeViewController: UIViewController {
 
 // MARK: - Extensions
 
+// tableView Confing
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentLocationWeatherData.count
+        return LocationListData.onlineData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeVCLocationTableViewCell.identifier, for: indexPath) as? HomeVCLocationTableViewCell else {return UITableViewCell()}
-        cell.bindOnlineData(data: currentLocationWeatherData[indexPath.row])
+        cell.bindData(data: LocationListData.onlineData[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let selectedCellData = LocationListData.dummyData[indexPath.row]
+        let selectedCellData = LocationListData.onlineData[indexPath.row]
         let detailVC = DetailViewController()
+        detailVC.selectedCellData = selectedCellData
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
+// Update with Network Data
 extension HomeViewController {
-    func getData(of location: String) async throws -> CurrentLocationWeatherData? {
+    func weatherInfo(of location: String) async throws -> CurrentLocationWeatherData {
         let baseURL = Config.plistValue(forKey: Config.Keys.Plist.weatherBaseURL)
         let APIKey = Config.plistValue(forKey: Config.Keys.Plist.weatherAPIKey)
         
         guard let url = URL(string: baseURL + "/weather?q=\(location)" + "&units=metric" + "&lang=kr" + "&appid=\(APIKey)") else {
-            throw NetworkError.unknownError
+            throw NetworkError.invalidURL
         }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.responseError
-            }
-            let decodedData = try JSONDecoder().decode(CurrentLocationWeatherData.self, from: data)
-            return decodedData
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard response is HTTPURLResponse else {
+            throw NetworkError.responseError
         }
-        catch {
-            print(error)
-        }
-        return nil
+        
+        let decodedData = try JSONDecoder().decode(CurrentLocationWeatherData.self, from: data)
+        
+        return decodedData
     }
     
-    func updateTableView() async throws {
-        for location in Location.allCases {
+    func updateTableViewData() {
+        Task {
             do {
-                guard let data = try await self.getData(of: location.englishName()) else {
-                    throw NetworkError.unknownError
+                for location in Location.allCases {
+                    let data = try await self.weatherInfo(of: location.englishName)
+                    let locationListData = CurrentLocationWeatherData.bindOnlineData(data: data)
+                    LocationListData.onlineData.append(locationListData)
                 }
-                currentLocationWeatherData.append(data)
-            }
-            catch {
+            } catch {
                 print(error)
             }
-            
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
     }
 }
-
