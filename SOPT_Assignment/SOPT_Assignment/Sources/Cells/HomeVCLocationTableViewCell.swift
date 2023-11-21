@@ -83,7 +83,7 @@ final class HomeVCLocationTableViewCell: UITableViewCell {
                 font: UIFont(name: "SFProDisplay-Light", size: 52),
                 text: "21°"
             )
-        }        
+        }
         
         tempuratureHighLabel.do {
             $0.setBasic(
